@@ -1,7 +1,8 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11134" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11134"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17701"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -673,7 +674,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Polynomial" customModuleProvider="target"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -703,11 +704,65 @@
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="Polynomial" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nBE-wi-02N">
+                                <rect key="frame" x="203" y="140" width="75" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="0J6-NX-URh"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="61" id="YdH-3u-2XW"/>
+                                </constraints>
+                                <buttonCell key="cell" type="push" title="Parse" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Ka7-HW-18b">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="parseClicked:" target="XfG-lQ-9wD" id="014-va-jZW"/>
+                                </connections>
+                            </button>
+                            <textField verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cq3-VH-4Rv">
+                                <rect key="frame" x="59" y="187" width="362" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="362" id="01x-KQ-g6S"/>
+                                    <constraint firstAttribute="height" constant="33" id="GPl-ds-HSB"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="placeholder text" drawsBackground="YES" id="kIK-NT-seR">
+                                    <font key="font" metaFont="system" size="24"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pSu-IO-hBS">
+                                <rect key="frame" x="211" y="20" width="59" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="33" id="Fll-IH-HZ6"/>
+                                    <constraint firstAttribute="height" constant="20" id="d7b-dU-ooq"/>
+                                </constraints>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="message" id="kfa-as-M3h">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="pSu-IO-hBS" secondAttribute="bottom" constant="20" id="DqD-CP-jA1"/>
+                            <constraint firstItem="nBE-wi-02N" firstAttribute="top" secondItem="cq3-VH-4Rv" secondAttribute="bottom" constant="20" id="GhV-qg-Tkd"/>
+                            <constraint firstItem="cq3-VH-4Rv" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="50" id="HW2-cT-AbH"/>
+                            <constraint firstItem="cq3-VH-4Rv" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="LAh-bq-pio"/>
+                            <constraint firstItem="cq3-VH-4Rv" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="Lq9-XF-33d"/>
+                            <constraint firstItem="nBE-wi-02N" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="NxJ-ue-Udf"/>
+                            <constraint firstItem="pSu-IO-hBS" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="tBJ-Eq-Xc2"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="ParseButton" destination="nBE-wi-02N" id="iCH-kZ-uE8"/>
+                        <outlet property="messageLabel" destination="pSu-IO-hBS" id="U4a-5M-L1b"/>
+                        <outlet property="textInput" destination="cq3-VH-4Rv" id="jqP-iL-bGw"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
