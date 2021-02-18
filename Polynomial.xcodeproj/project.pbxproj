@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		270E75B725DEF21200F92FAC /* ANTLRGen.sh in Resources */ = {isa = PBXBuildFile; fileRef = 270E75B625DEF21200F92FAC /* ANTLRGen.sh */; };
+		270E75C125DEF2EA00F92FAC /* Poly.g4 in Resources */ = {isa = PBXBuildFile; fileRef = 270E75C025DEF2EA00F92FAC /* Poly.g4 */; };
+		2773669825DEFED1005F8B25 /* PolyParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773669225DEFED1005F8B25 /* PolyParser.swift */; };
+		2773669925DEFED1005F8B25 /* PolyListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773669325DEFED1005F8B25 /* PolyListener.swift */; };
+		2773669A25DEFED1005F8B25 /* PolyLexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773669425DEFED1005F8B25 /* PolyLexer.swift */; };
+		2773669B25DEFED1005F8B25 /* PolyLexerATN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773669525DEFED1005F8B25 /* PolyLexerATN.swift */; };
+		2773669C25DEFED1005F8B25 /* PolyParserATN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773669625DEFED1005F8B25 /* PolyParserATN.swift */; };
+		2773669D25DEFED1005F8B25 /* PolyBaseListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773669725DEFED1005F8B25 /* PolyBaseListener.swift */; };
+		277366A925DEFF4A005F8B25 /* Antlr4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27DDA00625DEA67500640738 /* Antlr4.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		277366E425DF18A9005F8B25 /* MyPolyListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277366E325DF18A9005F8B25 /* MyPolyListener.swift */; };
 		27DD9FD025DEA65700640738 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DD9FCF25DEA65700640738 /* AppDelegate.swift */; };
 		27DD9FD225DEA65700640738 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DD9FD125DEA65700640738 /* ViewController.swift */; };
 		27DD9FD425DEA65700640738 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27DD9FD325DEA65700640738 /* Assets.xcassets */; };
@@ -16,6 +26,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		277366C825DF16DA005F8B25 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 27DD9FFE25DEA67500640738 /* Antlr4.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = "Antlr4::Antlr4";
+			remoteInfo = Antlr4;
+		};
 		27DD9FDF25DEA65800640738 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 27DD9FC425DEA65700640738 /* Project object */;
@@ -30,9 +47,33 @@
 			remoteGlobalIDString = 27DD9FCB25DEA65700640738;
 			remoteInfo = Polynomial;
 		};
+		27DDA00525DEA67500640738 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 27DD9FFE25DEA67500640738 /* Antlr4.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = "Antlr4::Antlr4::Product";
+			remoteInfo = Antlr4;
+		};
+		27DDA00725DEA67500640738 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 27DD9FFE25DEA67500640738 /* Antlr4.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = "Antlr4::Antlr4Tests::Product";
+			remoteInfo = Antlr4Tests;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		270E75B625DEF21200F92FAC /* ANTLRGen.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = ANTLRGen.sh; sourceTree = "<group>"; };
+		270E75C025DEF2EA00F92FAC /* Poly.g4 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Poly.g4; sourceTree = "<group>"; };
+		2773665B25DEFB98005F8B25 /* ANTLRGen */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ANTLRGen; path = Polynomial/ANTLRGen; sourceTree = "<group>"; };
+		2773669225DEFED1005F8B25 /* PolyParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolyParser.swift; sourceTree = "<group>"; };
+		2773669325DEFED1005F8B25 /* PolyListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolyListener.swift; sourceTree = "<group>"; };
+		2773669425DEFED1005F8B25 /* PolyLexer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolyLexer.swift; sourceTree = "<group>"; };
+		2773669525DEFED1005F8B25 /* PolyLexerATN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolyLexerATN.swift; sourceTree = "<group>"; };
+		2773669625DEFED1005F8B25 /* PolyParserATN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolyParserATN.swift; sourceTree = "<group>"; };
+		2773669725DEFED1005F8B25 /* PolyBaseListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolyBaseListener.swift; sourceTree = "<group>"; };
+		277366E325DF18A9005F8B25 /* MyPolyListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPolyListener.swift; sourceTree = "<group>"; };
 		27DD9FCC25DEA65700640738 /* Polynomial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Polynomial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27DD9FCF25DEA65700640738 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		27DD9FD125DEA65700640738 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -46,6 +87,7 @@
 		27DD9FE925DEA65800640738 /* PolynomialUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PolynomialUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		27DD9FED25DEA65800640738 /* PolynomialUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolynomialUITests.swift; sourceTree = "<group>"; };
 		27DD9FEF25DEA65800640738 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		27DD9FFE25DEA67500640738 /* Antlr4.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Antlr4.xcodeproj; path = ../../Swift/antlr4/runtime/Swift/Antlr4.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				277366A925DEFF4A005F8B25 /* Antlr4.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,13 +116,59 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		270E75B125DEF18800F92FAC /* BuildScripts */ = {
+			isa = PBXGroup;
+			children = (
+				270E75B625DEF21200F92FAC /* ANTLRGen.sh */,
+			);
+			path = BuildScripts;
+			sourceTree = "<group>";
+		};
+		270E75BB25DEF23900F92FAC /* ANTLRGen */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ANTLRGen;
+			sourceTree = "<group>";
+		};
+		270E75BF25DEF2D700F92FAC /* ANTLR */ = {
+			isa = PBXGroup;
+			children = (
+				270E75C025DEF2EA00F92FAC /* Poly.g4 */,
+			);
+			path = ANTLR;
+			sourceTree = "<group>";
+		};
+		277366A125DEFEE0005F8B25 /* ANTLRGenSwift */ = {
+			isa = PBXGroup;
+			children = (
+				2773669725DEFED1005F8B25 /* PolyBaseListener.swift */,
+				2773669425DEFED1005F8B25 /* PolyLexer.swift */,
+				2773669525DEFED1005F8B25 /* PolyLexerATN.swift */,
+				2773669325DEFED1005F8B25 /* PolyListener.swift */,
+				2773669225DEFED1005F8B25 /* PolyParser.swift */,
+				2773669625DEFED1005F8B25 /* PolyParserATN.swift */,
+			);
+			path = ANTLRGenSwift;
+			sourceTree = "<group>";
+		};
+		277366A825DEFF4A005F8B25 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		27DD9FC325DEA65700640738 = {
 			isa = PBXGroup;
 			children = (
+				27DD9FFE25DEA67500640738 /* Antlr4.xcodeproj */,
+				2773665B25DEFB98005F8B25 /* ANTLRGen */,
 				27DD9FCE25DEA65700640738 /* Polynomial */,
 				27DD9FE125DEA65800640738 /* PolynomialTests */,
 				27DD9FEC25DEA65800640738 /* PolynomialUITests */,
 				27DD9FCD25DEA65700640738 /* Products */,
+				277366A825DEFF4A005F8B25 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,12 +185,17 @@
 		27DD9FCE25DEA65700640738 /* Polynomial */ = {
 			isa = PBXGroup;
 			children = (
+				277366A125DEFEE0005F8B25 /* ANTLRGenSwift */,
+				270E75BF25DEF2D700F92FAC /* ANTLR */,
+				270E75BB25DEF23900F92FAC /* ANTLRGen */,
+				270E75B125DEF18800F92FAC /* BuildScripts */,
 				27DD9FCF25DEA65700640738 /* AppDelegate.swift */,
 				27DD9FD125DEA65700640738 /* ViewController.swift */,
 				27DD9FD325DEA65700640738 /* Assets.xcassets */,
 				27DD9FD525DEA65700640738 /* Main.storyboard */,
 				27DD9FD825DEA65700640738 /* Info.plist */,
 				27DD9FD925DEA65700640738 /* Polynomial.entitlements */,
+				277366E325DF18A9005F8B25 /* MyPolyListener.swift */,
 			);
 			path = Polynomial;
 			sourceTree = "<group>";
@@ -124,6 +218,15 @@
 			path = PolynomialUITests;
 			sourceTree = "<group>";
 		};
+		27DD9FFF25DEA67500640738 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				27DDA00625DEA67500640738 /* Antlr4.framework */,
+				27DDA00825DEA67500640738 /* Antlr4Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -131,6 +234,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 27DD9FF225DEA65800640738 /* Build configuration list for PBXNativeTarget "Polynomial" */;
 			buildPhases = (
+				270E75C525DEF34B00F92FAC /* ShellScript */,
 				27DD9FC825DEA65700640738 /* Sources */,
 				27DD9FC925DEA65700640738 /* Frameworks */,
 				27DD9FCA25DEA65700640738 /* Resources */,
@@ -138,6 +242,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				277366C925DF16DA005F8B25 /* PBXTargetDependency */,
 			);
 			name = Polynomial;
 			productName = Polynomial;
@@ -213,6 +318,12 @@
 			mainGroup = 27DD9FC325DEA65700640738;
 			productRefGroup = 27DD9FCD25DEA65700640738 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 27DD9FFF25DEA67500640738 /* Products */;
+					ProjectRef = 27DD9FFE25DEA67500640738 /* Antlr4.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				27DD9FCB25DEA65700640738 /* Polynomial */,
@@ -222,13 +333,32 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		27DDA00625DEA67500640738 /* Antlr4.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Antlr4.framework;
+			remoteRef = 27DDA00525DEA67500640738 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		27DDA00825DEA67500640738 /* Antlr4Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = file;
+			path = Antlr4Tests.xctest;
+			remoteRef = 27DDA00725DEA67500640738 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		27DD9FCA25DEA65700640738 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				270E75C125DEF2EA00F92FAC /* Poly.g4 in Resources */,
 				27DD9FD425DEA65700640738 /* Assets.xcassets in Resources */,
 				27DD9FD725DEA65700640738 /* Main.storyboard in Resources */,
+				270E75B725DEF21200F92FAC /* ANTLRGen.sh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,11 +378,41 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		270E75C525DEF34B00F92FAC /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/ANTLR/Poly.g4",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(SRCROOT)/ANTLRGen",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/Users/mike/calculus/Polynomial/Polynomial/BuildScripts/ANTLRGen.sh\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		27DD9FC825DEA65700640738 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2773669825DEFED1005F8B25 /* PolyParser.swift in Sources */,
+				2773669925DEFED1005F8B25 /* PolyListener.swift in Sources */,
+				2773669A25DEFED1005F8B25 /* PolyLexer.swift in Sources */,
+				277366E425DF18A9005F8B25 /* MyPolyListener.swift in Sources */,
+				2773669B25DEFED1005F8B25 /* PolyLexerATN.swift in Sources */,
+				2773669C25DEFED1005F8B25 /* PolyParserATN.swift in Sources */,
+				2773669D25DEFED1005F8B25 /* PolyBaseListener.swift in Sources */,
 				27DD9FD225DEA65700640738 /* ViewController.swift in Sources */,
 				27DD9FD025DEA65700640738 /* AppDelegate.swift in Sources */,
 			);
@@ -277,6 +437,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		277366C925DF16DA005F8B25 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Antlr4;
+			targetProxy = 277366C825DF16DA005F8B25 /* PBXContainerItemProxy */;
+		};
 		27DD9FE025DEA65800640738 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 27DD9FCB25DEA65700640738 /* Polynomial */;
