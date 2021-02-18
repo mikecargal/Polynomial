@@ -1,0 +1,587 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		27DD9FD025DEA65700640738 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DD9FCF25DEA65700640738 /* AppDelegate.swift */; };
+		27DD9FD225DEA65700640738 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DD9FD125DEA65700640738 /* ViewController.swift */; };
+		27DD9FD425DEA65700640738 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27DD9FD325DEA65700640738 /* Assets.xcassets */; };
+		27DD9FD725DEA65700640738 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27DD9FD525DEA65700640738 /* Main.storyboard */; };
+		27DD9FE325DEA65800640738 /* PolynomialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DD9FE225DEA65800640738 /* PolynomialTests.swift */; };
+		27DD9FEE25DEA65800640738 /* PolynomialUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DD9FED25DEA65800640738 /* PolynomialUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		27DD9FDF25DEA65800640738 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 27DD9FC425DEA65700640738 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 27DD9FCB25DEA65700640738;
+			remoteInfo = Polynomial;
+		};
+		27DD9FEA25DEA65800640738 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 27DD9FC425DEA65700640738 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 27DD9FCB25DEA65700640738;
+			remoteInfo = Polynomial;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		27DD9FCC25DEA65700640738 /* Polynomial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Polynomial.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		27DD9FCF25DEA65700640738 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		27DD9FD125DEA65700640738 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		27DD9FD325DEA65700640738 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		27DD9FD625DEA65700640738 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		27DD9FD825DEA65700640738 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		27DD9FD925DEA65700640738 /* Polynomial.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Polynomial.entitlements; sourceTree = "<group>"; };
+		27DD9FDE25DEA65800640738 /* PolynomialTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PolynomialTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		27DD9FE225DEA65800640738 /* PolynomialTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolynomialTests.swift; sourceTree = "<group>"; };
+		27DD9FE425DEA65800640738 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		27DD9FE925DEA65800640738 /* PolynomialUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PolynomialUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		27DD9FED25DEA65800640738 /* PolynomialUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolynomialUITests.swift; sourceTree = "<group>"; };
+		27DD9FEF25DEA65800640738 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		27DD9FC925DEA65700640738 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27DD9FDB25DEA65800640738 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27DD9FE625DEA65800640738 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		27DD9FC325DEA65700640738 = {
+			isa = PBXGroup;
+			children = (
+				27DD9FCE25DEA65700640738 /* Polynomial */,
+				27DD9FE125DEA65800640738 /* PolynomialTests */,
+				27DD9FEC25DEA65800640738 /* PolynomialUITests */,
+				27DD9FCD25DEA65700640738 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		27DD9FCD25DEA65700640738 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				27DD9FCC25DEA65700640738 /* Polynomial.app */,
+				27DD9FDE25DEA65800640738 /* PolynomialTests.xctest */,
+				27DD9FE925DEA65800640738 /* PolynomialUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		27DD9FCE25DEA65700640738 /* Polynomial */ = {
+			isa = PBXGroup;
+			children = (
+				27DD9FCF25DEA65700640738 /* AppDelegate.swift */,
+				27DD9FD125DEA65700640738 /* ViewController.swift */,
+				27DD9FD325DEA65700640738 /* Assets.xcassets */,
+				27DD9FD525DEA65700640738 /* Main.storyboard */,
+				27DD9FD825DEA65700640738 /* Info.plist */,
+				27DD9FD925DEA65700640738 /* Polynomial.entitlements */,
+			);
+			path = Polynomial;
+			sourceTree = "<group>";
+		};
+		27DD9FE125DEA65800640738 /* PolynomialTests */ = {
+			isa = PBXGroup;
+			children = (
+				27DD9FE225DEA65800640738 /* PolynomialTests.swift */,
+				27DD9FE425DEA65800640738 /* Info.plist */,
+			);
+			path = PolynomialTests;
+			sourceTree = "<group>";
+		};
+		27DD9FEC25DEA65800640738 /* PolynomialUITests */ = {
+			isa = PBXGroup;
+			children = (
+				27DD9FED25DEA65800640738 /* PolynomialUITests.swift */,
+				27DD9FEF25DEA65800640738 /* Info.plist */,
+			);
+			path = PolynomialUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		27DD9FCB25DEA65700640738 /* Polynomial */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 27DD9FF225DEA65800640738 /* Build configuration list for PBXNativeTarget "Polynomial" */;
+			buildPhases = (
+				27DD9FC825DEA65700640738 /* Sources */,
+				27DD9FC925DEA65700640738 /* Frameworks */,
+				27DD9FCA25DEA65700640738 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Polynomial;
+			productName = Polynomial;
+			productReference = 27DD9FCC25DEA65700640738 /* Polynomial.app */;
+			productType = "com.apple.product-type.application";
+		};
+		27DD9FDD25DEA65800640738 /* PolynomialTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 27DD9FF525DEA65800640738 /* Build configuration list for PBXNativeTarget "PolynomialTests" */;
+			buildPhases = (
+				27DD9FDA25DEA65800640738 /* Sources */,
+				27DD9FDB25DEA65800640738 /* Frameworks */,
+				27DD9FDC25DEA65800640738 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				27DD9FE025DEA65800640738 /* PBXTargetDependency */,
+			);
+			name = PolynomialTests;
+			productName = PolynomialTests;
+			productReference = 27DD9FDE25DEA65800640738 /* PolynomialTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		27DD9FE825DEA65800640738 /* PolynomialUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 27DD9FF825DEA65800640738 /* Build configuration list for PBXNativeTarget "PolynomialUITests" */;
+			buildPhases = (
+				27DD9FE525DEA65800640738 /* Sources */,
+				27DD9FE625DEA65800640738 /* Frameworks */,
+				27DD9FE725DEA65800640738 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				27DD9FEB25DEA65800640738 /* PBXTargetDependency */,
+			);
+			name = PolynomialUITests;
+			productName = PolynomialUITests;
+			productReference = 27DD9FE925DEA65800640738 /* PolynomialUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		27DD9FC425DEA65700640738 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					27DD9FCB25DEA65700640738 = {
+						CreatedOnToolsVersion = 12.4;
+					};
+					27DD9FDD25DEA65800640738 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 27DD9FCB25DEA65700640738;
+					};
+					27DD9FE825DEA65800640738 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 27DD9FCB25DEA65700640738;
+					};
+				};
+			};
+			buildConfigurationList = 27DD9FC725DEA65700640738 /* Build configuration list for PBXProject "Polynomial" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 27DD9FC325DEA65700640738;
+			productRefGroup = 27DD9FCD25DEA65700640738 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				27DD9FCB25DEA65700640738 /* Polynomial */,
+				27DD9FDD25DEA65800640738 /* PolynomialTests */,
+				27DD9FE825DEA65800640738 /* PolynomialUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		27DD9FCA25DEA65700640738 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27DD9FD425DEA65700640738 /* Assets.xcassets in Resources */,
+				27DD9FD725DEA65700640738 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27DD9FDC25DEA65800640738 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27DD9FE725DEA65800640738 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		27DD9FC825DEA65700640738 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27DD9FD225DEA65700640738 /* ViewController.swift in Sources */,
+				27DD9FD025DEA65700640738 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27DD9FDA25DEA65800640738 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27DD9FE325DEA65800640738 /* PolynomialTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27DD9FE525DEA65800640738 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27DD9FEE25DEA65800640738 /* PolynomialUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		27DD9FE025DEA65800640738 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 27DD9FCB25DEA65700640738 /* Polynomial */;
+			targetProxy = 27DD9FDF25DEA65800640738 /* PBXContainerItemProxy */;
+		};
+		27DD9FEB25DEA65800640738 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 27DD9FCB25DEA65700640738 /* Polynomial */;
+			targetProxy = 27DD9FEA25DEA65800640738 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		27DD9FD525DEA65700640738 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				27DD9FD625DEA65700640738 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		27DD9FF025DEA65800640738 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		27DD9FF125DEA65800640738 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		27DD9FF325DEA65800640738 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Polynomial/Polynomial.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = V4JGHQ2JFJ;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = Polynomial/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mikecargal.Polynomial;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		27DD9FF425DEA65800640738 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Polynomial/Polynomial.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = V4JGHQ2JFJ;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = Polynomial/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mikecargal.Polynomial;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		27DD9FF625DEA65800640738 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = V4JGHQ2JFJ;
+				INFOPLIST_FILE = PolynomialTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mikecargal.PolynomialTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Polynomial.app/Contents/MacOS/Polynomial";
+			};
+			name = Debug;
+		};
+		27DD9FF725DEA65800640738 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = V4JGHQ2JFJ;
+				INFOPLIST_FILE = PolynomialTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mikecargal.PolynomialTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Polynomial.app/Contents/MacOS/Polynomial";
+			};
+			name = Release;
+		};
+		27DD9FF925DEA65800640738 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = V4JGHQ2JFJ;
+				INFOPLIST_FILE = PolynomialUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mikecargal.PolynomialUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = Polynomial;
+			};
+			name = Debug;
+		};
+		27DD9FFA25DEA65800640738 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = V4JGHQ2JFJ;
+				INFOPLIST_FILE = PolynomialUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mikecargal.PolynomialUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = Polynomial;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		27DD9FC725DEA65700640738 /* Build configuration list for PBXProject "Polynomial" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				27DD9FF025DEA65800640738 /* Debug */,
+				27DD9FF125DEA65800640738 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		27DD9FF225DEA65800640738 /* Build configuration list for PBXNativeTarget "Polynomial" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				27DD9FF325DEA65800640738 /* Debug */,
+				27DD9FF425DEA65800640738 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		27DD9FF525DEA65800640738 /* Build configuration list for PBXNativeTarget "PolynomialTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				27DD9FF625DEA65800640738 /* Debug */,
+				27DD9FF725DEA65800640738 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		27DD9FF825DEA65800640738 /* Build configuration list for PBXNativeTarget "PolynomialUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				27DD9FF925DEA65800640738 /* Debug */,
+				27DD9FFA25DEA65800640738 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 27DD9FC425DEA65700640738 /* Project object */;
+}
