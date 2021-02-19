@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		270E75B725DEF21200F92FAC /* ANTLRGen.sh in Resources */ = {isa = PBXBuildFile; fileRef = 270E75B625DEF21200F92FAC /* ANTLRGen.sh */; };
 		270E75C125DEF2EA00F92FAC /* Poly.g4 in Resources */ = {isa = PBXBuildFile; fileRef = 270E75C025DEF2EA00F92FAC /* Poly.g4 */; };
+		273F43B425E05E5600DC1404 /* ContextExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273F43B325E05E5600DC1404 /* ContextExtensions.swift */; };
+		273F43BC25E061A800DC1404 /* PolynomialExpr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273F43BB25E061A800DC1404 /* PolynomialExpr.swift */; };
 		2773669825DEFED1005F8B25 /* PolyParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773669225DEFED1005F8B25 /* PolyParser.swift */; };
 		2773669925DEFED1005F8B25 /* PolyListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773669325DEFED1005F8B25 /* PolyListener.swift */; };
 		2773669A25DEFED1005F8B25 /* PolyLexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773669425DEFED1005F8B25 /* PolyLexer.swift */; };
@@ -17,6 +19,8 @@
 		2773669D25DEFED1005F8B25 /* PolyBaseListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773669725DEFED1005F8B25 /* PolyBaseListener.swift */; };
 		277366A925DEFF4A005F8B25 /* Antlr4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27DDA00625DEA67500640738 /* Antlr4.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		277366E425DF18A9005F8B25 /* MyPolyListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277366E325DF18A9005F8B25 /* MyPolyListener.swift */; };
+		279736B525DFF74C0011D7C8 /* MyErrorListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279736B425DFF74C0011D7C8 /* MyErrorListener.swift */; };
+		279736D725E024CC0011D7C8 /* PolynomialTerm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279736D625E024CC0011D7C8 /* PolynomialTerm.swift */; };
 		27DD9FD025DEA65700640738 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DD9FCF25DEA65700640738 /* AppDelegate.swift */; };
 		27DD9FD225DEA65700640738 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DD9FD125DEA65700640738 /* ViewController.swift */; };
 		27DD9FD425DEA65700640738 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27DD9FD325DEA65700640738 /* Assets.xcassets */; };
@@ -66,7 +70,8 @@
 /* Begin PBXFileReference section */
 		270E75B625DEF21200F92FAC /* ANTLRGen.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = ANTLRGen.sh; sourceTree = "<group>"; };
 		270E75C025DEF2EA00F92FAC /* Poly.g4 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Poly.g4; sourceTree = "<group>"; };
-		2773665B25DEFB98005F8B25 /* ANTLRGen */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ANTLRGen; path = Polynomial/ANTLRGen; sourceTree = "<group>"; };
+		273F43B325E05E5600DC1404 /* ContextExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextExtensions.swift; sourceTree = "<group>"; };
+		273F43BB25E061A800DC1404 /* PolynomialExpr.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolynomialExpr.swift; sourceTree = "<group>"; };
 		2773669225DEFED1005F8B25 /* PolyParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolyParser.swift; sourceTree = "<group>"; };
 		2773669325DEFED1005F8B25 /* PolyListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolyListener.swift; sourceTree = "<group>"; };
 		2773669425DEFED1005F8B25 /* PolyLexer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolyLexer.swift; sourceTree = "<group>"; };
@@ -74,6 +79,8 @@
 		2773669625DEFED1005F8B25 /* PolyParserATN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolyParserATN.swift; sourceTree = "<group>"; };
 		2773669725DEFED1005F8B25 /* PolyBaseListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolyBaseListener.swift; sourceTree = "<group>"; };
 		277366E325DF18A9005F8B25 /* MyPolyListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPolyListener.swift; sourceTree = "<group>"; };
+		279736B425DFF74C0011D7C8 /* MyErrorListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyErrorListener.swift; sourceTree = "<group>"; };
+		279736D625E024CC0011D7C8 /* PolynomialTerm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolynomialTerm.swift; sourceTree = "<group>"; };
 		27DD9FCC25DEA65700640738 /* Polynomial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Polynomial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27DD9FCF25DEA65700640738 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		27DD9FD125DEA65700640738 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -124,13 +131,6 @@
 			path = BuildScripts;
 			sourceTree = "<group>";
 		};
-		270E75BB25DEF23900F92FAC /* ANTLRGen */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ANTLRGen;
-			sourceTree = "<group>";
-		};
 		270E75BF25DEF2D700F92FAC /* ANTLR */ = {
 			isa = PBXGroup;
 			children = (
@@ -163,7 +163,6 @@
 			isa = PBXGroup;
 			children = (
 				27DD9FFE25DEA67500640738 /* Antlr4.xcodeproj */,
-				2773665B25DEFB98005F8B25 /* ANTLRGen */,
 				27DD9FCE25DEA65700640738 /* Polynomial */,
 				27DD9FE125DEA65800640738 /* PolynomialTests */,
 				27DD9FEC25DEA65800640738 /* PolynomialUITests */,
@@ -187,15 +186,18 @@
 			children = (
 				277366A125DEFEE0005F8B25 /* ANTLRGenSwift */,
 				270E75BF25DEF2D700F92FAC /* ANTLR */,
-				270E75BB25DEF23900F92FAC /* ANTLRGen */,
 				270E75B125DEF18800F92FAC /* BuildScripts */,
 				27DD9FCF25DEA65700640738 /* AppDelegate.swift */,
 				27DD9FD125DEA65700640738 /* ViewController.swift */,
+				277366E325DF18A9005F8B25 /* MyPolyListener.swift */,
+				273F43B325E05E5600DC1404 /* ContextExtensions.swift */,
+				273F43BB25E061A800DC1404 /* PolynomialExpr.swift */,
+				279736D625E024CC0011D7C8 /* PolynomialTerm.swift */,
+				279736B425DFF74C0011D7C8 /* MyErrorListener.swift */,
 				27DD9FD325DEA65700640738 /* Assets.xcassets */,
 				27DD9FD525DEA65700640738 /* Main.storyboard */,
 				27DD9FD825DEA65700640738 /* Info.plist */,
 				27DD9FD925DEA65700640738 /* Polynomial.entitlements */,
-				277366E325DF18A9005F8B25 /* MyPolyListener.swift */,
 			);
 			path = Polynomial;
 			sourceTree = "<group>";
@@ -387,12 +389,12 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/ANTLR/Poly.g4",
+				"$(SRCROOT)/Polynomial/ANTLR/Poly.g4",
 			);
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(SRCROOT)/ANTLRGen",
+				"$(SRCROOT)/Polynomial/ANTLRGenSwift/Poly.tokens",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -411,9 +413,13 @@
 				2773669A25DEFED1005F8B25 /* PolyLexer.swift in Sources */,
 				277366E425DF18A9005F8B25 /* MyPolyListener.swift in Sources */,
 				2773669B25DEFED1005F8B25 /* PolyLexerATN.swift in Sources */,
+				279736D725E024CC0011D7C8 /* PolynomialTerm.swift in Sources */,
 				2773669C25DEFED1005F8B25 /* PolyParserATN.swift in Sources */,
+				273F43B425E05E5600DC1404 /* ContextExtensions.swift in Sources */,
 				2773669D25DEFED1005F8B25 /* PolyBaseListener.swift in Sources */,
 				27DD9FD225DEA65700640738 /* ViewController.swift in Sources */,
+				279736B525DFF74C0011D7C8 /* MyErrorListener.swift in Sources */,
+				273F43BC25E061A800DC1404 /* PolynomialExpr.swift in Sources */,
 				27DD9FD025DEA65700640738 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

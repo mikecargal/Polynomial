@@ -8,28 +8,25 @@
 import Foundation
 
 class MyPolyListener: PolyBaseListener {
+    var terms: [PolynomialTerm] = []
     override func enterAddSub(_ ctx: PolyParser.AddSubContext) {
-        print("op=\(ctx.op.getType().description)")
-        if ctx.ADD() != nil {
-            print("add")
-        }
-        if ctx.SUB() != nil {
-            print("sub")
-        }
+        print(ctx.getText())
+        print("op=\(PolyLexer.ruleNames[ctx.op.getType() - 1]) (\(ctx.op.getType()):\(String(describing: ctx.op.getText()))")
     }
 
-    override func enterInteger(_ ctx: PolyParser.IntegerContext) {
-        print(" integer \(ctx.getText())")
+    override func enterCTerm(_ ctx: PolyParser.CTermContext) {
+        self.terms.append(ctx.term())
     }
 
-    override func enterX(_ ctx: PolyParser.XContext) {
-        print("X -> \(ctx.getText())")
+    override func enterVdTerm(_ ctx: PolyParser.VdTermContext) {
+        self.terms.append(ctx.term())
+    }
 
-        if let children = ctx.children,
-           children.count >= 2,
-           let exp = ctx.children?[2]
-        {
-            print("\texp=\(exp)")
-        }
+    override func enterCvTerm(_ ctx: PolyParser.CvTermContext) {
+        self.terms.append(ctx.term())
+    }
+
+    override func enterCvdTerm(_ ctx: PolyParser.CvdTermContext) {
+        self.terms.append(ctx.term())
     }
 }

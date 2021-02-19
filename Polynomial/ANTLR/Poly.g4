@@ -1,26 +1,34 @@
 grammar Poly;
 
-@package { net.cargal.poly }
-
-polys: pExpr (NL pExpr)* EOF;
 // parser rules
+polys: pExpr (NL pExpr)* EOF;
+
 pExpr:
-	L_PAREN pExpr R_PAREN			# paren
-	| X (EXP exp=INT)?				# x
-	| pExpr op = (MULT | DIV) pExpr	# mulDiv
-	| pExpr op = ( ADD | SUB) pExpr	# addSub
-	| INT							# integer
-	;
+    L_PAREN pExpr R_PAREN               # parenPExpr
+    | pExpr op = (MULT | DIV) pExpr     # mulDiv
+    | pExpr op = (PLUS | MINUS) pExpr   # addSub
+    | term                              # pTerm
+    ;
+ 
+ term :
+    coefficient (MULT)? v=VAR degree    # cvdTerm
+    | VAR degree                        # vdTerm
+    | coefficient v=VAR                 # cvTerm
+    | coefficient                       # cTerm
+    ;
+
+degree: EXP degreeValue=INT;
+coefficient : neg=MINUS? INT;
 
 // Lexer rules
-ADD: '+';
-SUB: '-';
+PLUS: '+';
+MINUS: '-';
 MULT: '*';
 DIV: '/';
 EXP: '^';
 L_PAREN: '(';
 R_PAREN: ')';
-X: 'x';
-INT: '-'? [0-9]+;
+VAR: [a-z,A-Z];
+INT:  [0-9]+;
 NL: '\n';
 WS: (' ' | '\t')+ -> skip;

@@ -19,33 +19,19 @@ public protocol PolyListener: ParseTreeListener {
 	 */
 	func exitPolys(_ ctx: PolyParser.PolysContext)
 	/**
-	 * Enter a parse tree produced by the {@code paren}
+	 * Enter a parse tree produced by the {@code parenPExpr}
 	 * labeled alternative in {@link PolyParser#pExpr}.
 	 - Parameters:
 	   - ctx: the parse tree
 	 */
-	func enterParen(_ ctx: PolyParser.ParenContext)
+	func enterParenPExpr(_ ctx: PolyParser.ParenPExprContext)
 	/**
-	 * Exit a parse tree produced by the {@code paren}
+	 * Exit a parse tree produced by the {@code parenPExpr}
 	 * labeled alternative in {@link PolyParser#pExpr}.
 	 - Parameters:
 	   - ctx: the parse tree
 	 */
-	func exitParen(_ ctx: PolyParser.ParenContext)
-	/**
-	 * Enter a parse tree produced by the {@code x}
-	 * labeled alternative in {@link PolyParser#pExpr}.
-	 - Parameters:
-	   - ctx: the parse tree
-	 */
-	func enterX(_ ctx: PolyParser.XContext)
-	/**
-	 * Exit a parse tree produced by the {@code x}
-	 * labeled alternative in {@link PolyParser#pExpr}.
-	 - Parameters:
-	   - ctx: the parse tree
-	 */
-	func exitX(_ ctx: PolyParser.XContext)
+	func exitParenPExpr(_ ctx: PolyParser.ParenPExprContext)
 	/**
 	 * Enter a parse tree produced by the {@code addSub}
 	 * labeled alternative in {@link PolyParser#pExpr}.
@@ -61,19 +47,19 @@ public protocol PolyListener: ParseTreeListener {
 	 */
 	func exitAddSub(_ ctx: PolyParser.AddSubContext)
 	/**
-	 * Enter a parse tree produced by the {@code integer}
+	 * Enter a parse tree produced by the {@code pTerm}
 	 * labeled alternative in {@link PolyParser#pExpr}.
 	 - Parameters:
 	   - ctx: the parse tree
 	 */
-	func enterInteger(_ ctx: PolyParser.IntegerContext)
+	func enterPTerm(_ ctx: PolyParser.PTermContext)
 	/**
-	 * Exit a parse tree produced by the {@code integer}
+	 * Exit a parse tree produced by the {@code pTerm}
 	 * labeled alternative in {@link PolyParser#pExpr}.
 	 - Parameters:
 	   - ctx: the parse tree
 	 */
-	func exitInteger(_ ctx: PolyParser.IntegerContext)
+	func exitPTerm(_ ctx: PolyParser.PTermContext)
 	/**
 	 * Enter a parse tree produced by the {@code mulDiv}
 	 * labeled alternative in {@link PolyParser#pExpr}.
@@ -88,4 +74,84 @@ public protocol PolyListener: ParseTreeListener {
 	   - ctx: the parse tree
 	 */
 	func exitMulDiv(_ ctx: PolyParser.MulDivContext)
+	/**
+	 * Enter a parse tree produced by the {@code cvdTerm}
+	 * labeled alternative in {@link PolyParser#term}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func enterCvdTerm(_ ctx: PolyParser.CvdTermContext)
+	/**
+	 * Exit a parse tree produced by the {@code cvdTerm}
+	 * labeled alternative in {@link PolyParser#term}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func exitCvdTerm(_ ctx: PolyParser.CvdTermContext)
+	/**
+	 * Enter a parse tree produced by the {@code vdTerm}
+	 * labeled alternative in {@link PolyParser#term}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func enterVdTerm(_ ctx: PolyParser.VdTermContext)
+	/**
+	 * Exit a parse tree produced by the {@code vdTerm}
+	 * labeled alternative in {@link PolyParser#term}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func exitVdTerm(_ ctx: PolyParser.VdTermContext)
+	/**
+	 * Enter a parse tree produced by the {@code cvTerm}
+	 * labeled alternative in {@link PolyParser#term}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func enterCvTerm(_ ctx: PolyParser.CvTermContext)
+	/**
+	 * Exit a parse tree produced by the {@code cvTerm}
+	 * labeled alternative in {@link PolyParser#term}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func exitCvTerm(_ ctx: PolyParser.CvTermContext)
+	/**
+	 * Enter a parse tree produced by the {@code cTerm}
+	 * labeled alternative in {@link PolyParser#term}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func enterCTerm(_ ctx: PolyParser.CTermContext)
+	/**
+	 * Exit a parse tree produced by the {@code cTerm}
+	 * labeled alternative in {@link PolyParser#term}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func exitCTerm(_ ctx: PolyParser.CTermContext)
+	/**
+	 * Enter a parse tree produced by {@link PolyParser#degree}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func enterDegree(_ ctx: PolyParser.DegreeContext)
+	/**
+	 * Exit a parse tree produced by {@link PolyParser#degree}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func exitDegree(_ ctx: PolyParser.DegreeContext)
+	/**
+	 * Enter a parse tree produced by {@link PolyParser#coefficient}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func enterCoefficient(_ ctx: PolyParser.CoefficientContext)
+	/**
+	 * Exit a parse tree produced by {@link PolyParser#coefficient}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func exitCoefficient(_ ctx: PolyParser.CoefficientContext)
 }

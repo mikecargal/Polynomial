@@ -28,26 +28,13 @@ open class PolyBaseListener: PolyListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	open func enterParen(_ ctx: PolyParser.ParenContext) { }
+	open func enterParenPExpr(_ ctx: PolyParser.ParenPExprContext) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	open func exitParen(_ ctx: PolyParser.ParenContext) { }
-
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	open func enterX(_ ctx: PolyParser.XContext) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	open func exitX(_ ctx: PolyParser.XContext) { }
+	open func exitParenPExpr(_ ctx: PolyParser.ParenPExprContext) { }
 
 	/**
 	 * {@inheritDoc}
@@ -67,13 +54,13 @@ open class PolyBaseListener: PolyListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	open func enterInteger(_ ctx: PolyParser.IntegerContext) { }
+	open func enterPTerm(_ ctx: PolyParser.PTermContext) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	open func exitInteger(_ ctx: PolyParser.IntegerContext) { }
+	open func exitPTerm(_ ctx: PolyParser.PTermContext) { }
 
 	/**
 	 * {@inheritDoc}
@@ -87,6 +74,84 @@ open class PolyBaseListener: PolyListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	open func exitMulDiv(_ ctx: PolyParser.MulDivContext) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func enterCvdTerm(_ ctx: PolyParser.CvdTermContext) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func exitCvdTerm(_ ctx: PolyParser.CvdTermContext) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func enterVdTerm(_ ctx: PolyParser.VdTermContext) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func exitVdTerm(_ ctx: PolyParser.VdTermContext) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func enterCvTerm(_ ctx: PolyParser.CvTermContext) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func exitCvTerm(_ ctx: PolyParser.CvTermContext) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func enterCTerm(_ ctx: PolyParser.CTermContext) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func exitCTerm(_ ctx: PolyParser.CTermContext) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func enterDegree(_ ctx: PolyParser.DegreeContext) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func exitDegree(_ ctx: PolyParser.DegreeContext) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func enterCoefficient(_ ctx: PolyParser.CoefficientContext) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func exitCoefficient(_ ctx: PolyParser.CoefficientContext) { }
 
 	/**
 	 * {@inheritDoc}
