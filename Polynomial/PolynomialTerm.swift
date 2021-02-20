@@ -16,7 +16,7 @@ struct PolynomialTerm: Equatable {
         self.v = v
         self.coefficient = coefficient
         self.degree = degree
-        print(String(describing: self))
+      //  print(String(describing: self))
     }
 
     var description: String {
