@@ -19,6 +19,18 @@ public protocol PolyListener: ParseTreeListener {
 	 */
 	func exitPolys(_ ctx: PolyParser.PolysContext)
 	/**
+	 * Enter a parse tree produced by {@link PolyParser#fullPExpr}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func enterFullPExpr(_ ctx: PolyParser.FullPExprContext)
+	/**
+	 * Exit a parse tree produced by {@link PolyParser#fullPExpr}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func exitFullPExpr(_ ctx: PolyParser.FullPExprContext)
+	/**
 	 * Enter a parse tree produced by the {@code parenPExpr}
 	 * labeled alternative in {@link PolyParser#pExpr}.
 	 - Parameters:
@@ -74,6 +86,18 @@ public protocol PolyListener: ParseTreeListener {
 	   - ctx: the parse tree
 	 */
 	func exitMulDiv(_ ctx: PolyParser.MulDivContext)
+	/**
+	 * Enter a parse tree produced by {@link PolyParser#fullTerm}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func enterFullTerm(_ ctx: PolyParser.FullTermContext)
+	/**
+	 * Exit a parse tree produced by {@link PolyParser#fullTerm}.
+	 - Parameters:
+	   - ctx: the parse tree
+	 */
+	func exitFullTerm(_ ctx: PolyParser.FullTermContext)
 	/**
 	 * Enter a parse tree produced by the {@code cvdTerm}
 	 * labeled alternative in {@link PolyParser#term}.

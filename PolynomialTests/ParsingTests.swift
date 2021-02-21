@@ -1,20 +1,14 @@
 //
-//  PolynomialTests.swift
+//  ParsingTests.swift
 //  PolynomialTests
 //
-//  Created by Mike Cargal on 2/18/21.
+//  Created by Mike Cargal on 2/20/21.
 //
 
 @testable import Polynomial
 import XCTest
 
-class PolynomialTests: XCTestCase {
-    let px3 = PolyParse.term("x^3")
-    let p2x3 = PolyParse.term("2x^3")
-    let p3x3 = PolynomialTerm("x", coefficient: 3, degree: 3)
-    let p5x3 = PolynomialTerm("x", coefficient: 5, degree: 3)
-    let p7x3 = PolynomialTerm("x", coefficient: 7, degree: 3)
-
+class ParsingTests: XCTestCase {
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -23,17 +17,18 @@ class PolynomialTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testPolynomialTermAddition() throws {
-        XCTAssertEqual(p2x3 + p5x3, p7x3)
+    func testTermParse() throws {
+        XCTAssertEqual(PolyParse.term("2x^3"), PolynomialTerm("x", coefficient: 2, degree: 3))
     }
-
-    func testPolynomialTermSubtraction() throws {
-        XCTAssertEqual(p5x3 - p2x3, p3x3)
+    
+    func testBadTerm() throws {
+      let res =  PolyParse.parseTerm("3x3")
+        XCTAssertEqual(res, .failure(.invalidInput("col:2 extraneous input \'3\' expecting <EOF>")))
     }
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
-        measure {
+        self.measure {
             // Put the code you want to measure the time of here.
         }
     }

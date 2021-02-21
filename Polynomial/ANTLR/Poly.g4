@@ -3,6 +3,7 @@ grammar Poly;
 // parser rules
 polys: pExpr (NL pExpr)* EOF;
 
+fullPExpr: pExpr EOF;
 pExpr:
     L_PAREN pExpr R_PAREN               # parenPExpr
     | pExpr op = (MULT | DIV) pExpr     # mulDiv
@@ -10,7 +11,8 @@ pExpr:
     | term                              # pTerm
     ;
  
- term :
+fullTerm: term EOF;
+term :
     coefficient (MULT)? v=VAR degree    # cvdTerm
     | VAR degree                        # vdTerm
     | coefficient v=VAR                 # cvTerm

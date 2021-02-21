@@ -28,6 +28,19 @@ open class PolyBaseListener: PolyListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	open func enterFullPExpr(_ ctx: PolyParser.FullPExprContext) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func exitFullPExpr(_ ctx: PolyParser.FullPExprContext) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	open func enterParenPExpr(_ ctx: PolyParser.ParenPExprContext) { }
 	/**
 	 * {@inheritDoc}
@@ -74,6 +87,19 @@ open class PolyBaseListener: PolyListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	open func exitMulDiv(_ ctx: PolyParser.MulDivContext) { }
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func enterFullTerm(_ ctx: PolyParser.FullTermContext) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	open func exitFullTerm(_ ctx: PolyParser.FullTermContext) { }
 
 	/**
 	 * {@inheritDoc}

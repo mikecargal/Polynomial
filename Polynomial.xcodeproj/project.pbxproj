@@ -11,6 +11,8 @@
 		270E75C125DEF2EA00F92FAC /* Poly.g4 in Resources */ = {isa = PBXBuildFile; fileRef = 270E75C025DEF2EA00F92FAC /* Poly.g4 */; };
 		273F43B425E05E5600DC1404 /* ContextExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273F43B325E05E5600DC1404 /* ContextExtensions.swift */; };
 		273F43BC25E061A800DC1404 /* PolynomialExpr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273F43BB25E061A800DC1404 /* PolynomialExpr.swift */; };
+		2754287F25E1911E00F21873 /* ParsingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2754287E25E1911E00F21873 /* ParsingTests.swift */; };
+		2754288725E1914800F21873 /* PolyParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2754288625E1914800F21873 /* PolyParse.swift */; };
 		2773669825DEFED1005F8B25 /* PolyParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773669225DEFED1005F8B25 /* PolyParser.swift */; };
 		2773669925DEFED1005F8B25 /* PolyListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773669325DEFED1005F8B25 /* PolyListener.swift */; };
 		2773669A25DEFED1005F8B25 /* PolyLexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773669425DEFED1005F8B25 /* PolyLexer.swift */; };
@@ -72,6 +74,8 @@
 		270E75C025DEF2EA00F92FAC /* Poly.g4 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Poly.g4; sourceTree = "<group>"; };
 		273F43B325E05E5600DC1404 /* ContextExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextExtensions.swift; sourceTree = "<group>"; };
 		273F43BB25E061A800DC1404 /* PolynomialExpr.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolynomialExpr.swift; sourceTree = "<group>"; };
+		2754287E25E1911E00F21873 /* ParsingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsingTests.swift; sourceTree = "<group>"; };
+		2754288625E1914800F21873 /* PolyParse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolyParse.swift; sourceTree = "<group>"; };
 		2773669225DEFED1005F8B25 /* PolyParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolyParser.swift; sourceTree = "<group>"; };
 		2773669325DEFED1005F8B25 /* PolyListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolyListener.swift; sourceTree = "<group>"; };
 		2773669425DEFED1005F8B25 /* PolyLexer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolyLexer.swift; sourceTree = "<group>"; };
@@ -198,6 +202,7 @@
 				27DD9FD525DEA65700640738 /* Main.storyboard */,
 				27DD9FD825DEA65700640738 /* Info.plist */,
 				27DD9FD925DEA65700640738 /* Polynomial.entitlements */,
+				2754288625E1914800F21873 /* PolyParse.swift */,
 			);
 			path = Polynomial;
 			sourceTree = "<group>";
@@ -206,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				27DD9FE225DEA65800640738 /* PolynomialTests.swift */,
+				2754287E25E1911E00F21873 /* ParsingTests.swift */,
 				27DD9FE425DEA65800640738 /* Info.plist */,
 			);
 			path = PolynomialTests;
@@ -419,6 +425,7 @@
 				2773669D25DEFED1005F8B25 /* PolyBaseListener.swift in Sources */,
 				27DD9FD225DEA65700640738 /* ViewController.swift in Sources */,
 				279736B525DFF74C0011D7C8 /* MyErrorListener.swift in Sources */,
+				2754288725E1914800F21873 /* PolyParse.swift in Sources */,
 				273F43BC25E061A800DC1404 /* PolynomialExpr.swift in Sources */,
 				27DD9FD025DEA65700640738 /* AppDelegate.swift in Sources */,
 			);
@@ -428,6 +435,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2754287F25E1911E00F21873 /* ParsingTests.swift in Sources */,
 				27DD9FE325DEA65800640738 /* PolynomialTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
