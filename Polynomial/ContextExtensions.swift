@@ -30,7 +30,7 @@ protocol TermProvider {
 
 extension PolyParser.FullTermContext: TermProvider {
     func term() -> PolynomialTerm {
-        return term()!.term()
+        return self.term()!.term()
     }
 }
 
@@ -83,6 +83,57 @@ extension PolyParser.CvdTermContext {
     }
 }
 
-extension PolyParser.FullPExprContext {
-    
+protocol PolynomialExprProvider {
+    func pExpr() -> PolynomialExpr
+}
+
+extension PolyParser.FullPExprContext: PolynomialExprProvider {
+    func pExpr() -> PolynomialExpr {
+        self.pExpr()!.pExpr()
+    }
+}
+
+extension PolyParser.PExprContext: PolynomialExprProvider {
+    func pExpr() -> PolynomialExpr {
+        switch self {
+        case let ctx as PolyParser.ParenPExprContext:
+            return ctx.parenPExpr()
+        case let ctx as PolyParser.MulDivContext:
+            return ctx.mulDivPExpr()
+        case let ctx as PolyParser.AddSubContext:
+            return ctx.addSubPExpr()
+        case let ctx as PolyParser.PTermContext:
+            return ctx.termPExpr()
+        default:
+            preconditionFailure("unrecognized PolyNomialTypeÏ type \(self.debugDescription)")
+        }
+    }
+}
+
+extension PolyParser.ParenPExprContext {
+    func parenPExpr() -> PolynomialExpr {
+        // TODO:
+        return PolynomialExpr([PolynomialTerm("x", coefficient: 1, degree: 1)])
+    }
+}
+
+extension PolyParser.MulDivContext {
+    func mulDivPExpr() -> PolynomialExpr {
+        // TODO:
+        return PolynomialExpr([PolynomialTerm("x", coefficient: 1, degree: 1)])
+    }
+}
+
+extension PolyParser.AddSubContext {
+    func addSubPExpr() -> PolynomialExpr {
+        // TODO:
+        return PolynomialExpr([PolynomialTerm("x", coefficient: 1, degree: 1)])
+    }
+}
+
+extension PolyParser.PTermContext {
+    func termPExpr() -> PolynomialExpr {
+        // TODO:
+        return PolynomialExpr([PolynomialTerm("x", coefficient: 1, degree: 1)])
+    }
 }
