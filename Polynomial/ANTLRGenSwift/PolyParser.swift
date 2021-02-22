@@ -17,7 +17,7 @@ open class PolyParser: Parser {
 	public
 	enum Tokens: Int {
 		case EOF = -1, PLUS = 1, MINUS = 2, MULT = 3, DIV = 4, EXP = 5, L_PAREN = 6, 
-                 R_PAREN = 7, VAR = 8, INT = 9, NL = 10, WS = 11
+                 R_PAREN = 7, VAR = 8, INT = 9, DECIMAL = 10, NL = 11, WS = 12
 	}
 
 	public
@@ -30,11 +30,11 @@ open class PolyParser: Parser {
 	]
 
 	private static let _LITERAL_NAMES: [String?] = [
-		nil, "'+'", "'-'", "'*'", "'/'", "'^'", "'('", "')'", nil, nil, "'\n'"
+		nil, "'+'", "'-'", "'*'", "'/'", "'^'", "'('", "')'", nil, nil, nil, "'\n'"
 	]
 	private static let _SYMBOLIC_NAMES: [String?] = [
 		nil, "PLUS", "MINUS", "MULT", "DIV", "EXP", "L_PAREN", "R_PAREN", "VAR", 
-		"INT", "NL", "WS"
+		"INT", "DECIMAL", "NL", "WS"
 	]
 	public
 	static let VOCABULARY = Vocabulary(_LITERAL_NAMES, _SYMBOLIC_NAMES)
@@ -370,7 +370,8 @@ open class PolyParser: Parser {
 				break
 			case .MINUS:fallthrough
 			case .VAR:fallthrough
-			case .INT:
+			case .INT:fallthrough
+			case .DECIMAL:
 				_localctx = PTermContext(_localctx)
 				_ctx = _localctx
 				_prevctx = _localctx
@@ -780,6 +781,10 @@ open class PolyParser: Parser {
 				return getToken(PolyParser.Tokens.INT.rawValue, 0)
 			}
 			open
+			func DECIMAL() -> TerminalNode? {
+				return getToken(PolyParser.Tokens.DECIMAL.rawValue, 0)
+			}
+			open
 			func MINUS() -> TerminalNode? {
 				return getToken(PolyParser.Tokens.MINUS.rawValue, 0)
 			}
@@ -828,7 +833,18 @@ open class PolyParser: Parser {
 		 	}
 
 		 	setState(70)
-		 	try match(PolyParser.Tokens.INT.rawValue)
+		 	_la = try _input.LA(1)
+		 	if (!(//closure
+		 	 { () -> Bool in
+		 	      let testSet: Bool = _la == PolyParser.Tokens.INT.rawValue || _la == PolyParser.Tokens.DECIMAL.rawValue
+		 	      return testSet
+		 	 }())) {
+		 	try _errHandler.recoverInline(self)
+		 	}
+		 	else {
+		 		_errHandler.reportMatch(self)
+		 		try consume()
+		 	}
 
 		}
 		catch ANTLRException.recognition(let re) {

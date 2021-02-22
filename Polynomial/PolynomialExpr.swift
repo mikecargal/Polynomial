@@ -6,8 +6,11 @@
 //
 
 import Foundation
+protocol Polynomial {
+    // TODO
+}
 
-struct PolynomialExpr {
+struct PolynomialExpr : Polynomial {
     private var terms: [PolynomialTerm]!
 
     init(_ term: PolynomialTerm) {

@@ -39,22 +39,22 @@ enum PolyParse {
         }
     }
     
-//    static func parsePoly(_ src: String) -> Result<PolynomialExpr,PolyParseError> {
-//        do {
-//            let (parser, errorListener) = try Self.getParserAndListener(forSource: src)
-//            let fullTerm = try parser.fullPExpr()
-//            if errorListener.errorMessages.count > 0 {
-//                return .failure(.invalidInput(errorListener.errorMessages.joined(separator: "\n")))
-//            }
-//            for msg in errorListener.errorMessages {
-//                print(msg)
-//            }
-//            return .success(fullTerm.pExpr()!)
-//
-//        } catch {
-//            return .failure(PolyParseError.parseFailure("error creating Parser (\(error.localizedDescription))"))
-//        }
-//    }
+    static func parsePoly(_ src: String) -> Result<PolynomialExpr,PolyParseError> {
+        do {
+            let (parser, errorListener) = try Self.getParserAndListener(forSource: src)
+            let fullTerm = try parser.fullPExpr()
+            if errorListener.errorMessages.count > 0 {
+                return .failure(.invalidInput(errorListener.errorMessages.joined(separator: "\n")))
+            }
+            for msg in errorListener.errorMessages {
+                print(msg)
+            }
+            return .success(fullTerm.pExpr())
+
+        } catch {
+            return .failure(PolyParseError.parseFailure("error creating Parser (\(error.localizedDescription))"))
+        }
+    }
 
     private static func getParserAndListener(forSource src: String) throws -> (PolyParser, MyErrorListener) {
         let source = src

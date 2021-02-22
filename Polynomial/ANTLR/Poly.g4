@@ -20,7 +20,7 @@ term :
     ;
 
 degree: EXP degreeValue=INT;
-coefficient : neg=MINUS? INT;
+coefficient : neg=MINUS? (INT | DECIMAL);
 
 // Lexer rules
 PLUS: '+';
@@ -32,5 +32,6 @@ L_PAREN: '(';
 R_PAREN: ')';
 VAR: [a-z,A-Z];
 INT:  [0-9]+;
+DECIMAL: [0-9]* '.' [0-9]+;
 NL: '\n';
 WS: (' ' | '\t')+ -> skip;

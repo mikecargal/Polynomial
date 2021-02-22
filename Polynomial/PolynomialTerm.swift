@@ -8,11 +8,11 @@
 import Foundation
 
 struct PolynomialTerm: Equatable {
-    let coefficient: Int
+    let coefficient: Double
     let v: String?
     let degree: Int
 
-    init(_ v: String?, coefficient: Int, degree: Int) {
+    init(_ v: String?, coefficient: Double, degree: Int) {
         self.v = v
         self.coefficient = coefficient
         self.degree = degree

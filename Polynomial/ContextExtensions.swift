@@ -9,17 +9,22 @@ import Antlr4
 import Foundation
 
 protocol IntProvider {
-    func int() -> Int
+    func value() -> Int
 }
 
-extension PolyParser.CoefficientContext: IntProvider {
-    func int() -> Int {
-        return Int(INT()!.getText())!
+protocol DoubleProvider {
+    func value() -> Double
+}
+
+extension PolyParser.CoefficientContext: DoubleProvider {
+    func value() -> Double {
+        let src = INT()?.getText() ?? DECIMAL()!.getText()
+        return Double(src)!
     }
 }
 
 extension PolyParser.DegreeContext: IntProvider {
-    func int() -> Int {
+    func value() -> Int {
         return Int(INT()!.getText())!
     }
 }
@@ -54,7 +59,7 @@ extension PolyParser.TermContext: TermProvider {
 extension PolyParser.CTermContext {
     func cTerm() -> PolynomialTerm {
         return PolynomialTerm(nil,
-                              coefficient: coefficient()!.int(),
+                              coefficient: coefficient()!.value(),
                               degree: 0)
     }
 }
@@ -62,7 +67,7 @@ extension PolyParser.CTermContext {
 extension PolyParser.CvTermContext {
     func cvTerm() -> PolynomialTerm {
         return PolynomialTerm(VAR()!.getText(),
-                              coefficient: coefficient()!.int(),
+                              coefficient: coefficient()!.value(),
                               degree: 1)
     }
 }
@@ -71,15 +76,15 @@ extension PolyParser.VdTermContext {
     func vdTerm() -> PolynomialTerm {
         return PolynomialTerm(VAR()!.getText(),
                               coefficient: 1,
-                              degree: degree()!.int())
+                              degree: degree()!.value())
     }
 }
 
 extension PolyParser.CvdTermContext {
     func cvdTerm() -> PolynomialTerm {
         PolynomialTerm(VAR()!.getText(),
-                       coefficient: coefficient()!.int(),
-                       degree: degree()!.int())
+                       coefficient: coefficient()!.value(),
+                       degree: degree()!.value())
     }
 }
 
