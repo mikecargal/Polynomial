@@ -14,45 +14,55 @@ enum PolyParseError: Error, Equatable {
 }
 
 enum PolyParse {
-    static func parseTerm(_ src: String) -> Result<PolynomialTerm, PolyParseError> {
+//    @available(*,deprecated)
+//    static func parseTerm(_ src: String) -> Result<Polynomial, PolyParseError> {
+//        do {
+//            let (parser, errorListener) = try Self.getParserAndListener(forSource: src)
+//            let pExpr = try parser.pExpr()
+//            if errorListener.errorMessages.count > 0 {
+//                return .failure(.invalidInput(errorListener.errorMessages.joined(separator: "\n")))
+//            }
+//            for msg in errorListener.errorMessages {
+//                print(msg)
+//            }
+//            return .success(pExpr.polynomial())
+//
+//        } catch {
+//            return .failure(PolyParseError.parseFailure("error creating Parser (\(error.localizedDescription))"))
+//        }
+//    }
+//    
+//    @available(*,deprecated)
+//    static func term(_ src: String) -> SinlgeTermPolynomialExpr {
+//        do {
+//            return try Self.parseTerm(src).get()
+//        } catch {
+//            preconditionFailure("Bad Term (\(src)")
+//        }
+//    }
+    
+    static func parsePoly(_ src: String) -> Result<Polynomial,PolyParseError> {
         do {
             let (parser, errorListener) = try Self.getParserAndListener(forSource: src)
-            let fullTerm = try parser.fullTerm()
+            let fullPoly = try parser.fullPExpr()
             if errorListener.errorMessages.count > 0 {
                 return .failure(.invalidInput(errorListener.errorMessages.joined(separator: "\n")))
             }
             for msg in errorListener.errorMessages {
                 print(msg)
             }
-            return .success(fullTerm.term())
+            return .success(fullPoly.polynomial())
 
         } catch {
             return .failure(PolyParseError.parseFailure("error creating Parser (\(error.localizedDescription))"))
-        }
-    }
-
-    static func term(_ src: String) -> PolynomialTerm {
-        do {
-            return try Self.parseTerm(src).get()
-        } catch {
-            preconditionFailure("Bad Term (\(src)")
         }
     }
     
-    static func parsePoly(_ src: String) -> Result<PolynomialExpr,PolyParseError> {
+    static func poly(_ src: String) -> Polynomial {
         do {
-            let (parser, errorListener) = try Self.getParserAndListener(forSource: src)
-            let fullTerm = try parser.fullPExpr()
-            if errorListener.errorMessages.count > 0 {
-                return .failure(.invalidInput(errorListener.errorMessages.joined(separator: "\n")))
-            }
-            for msg in errorListener.errorMessages {
-                print(msg)
-            }
-            return .success(fullTerm.pExpr())
-
+            return try Self.parsePoly(src).get()
         } catch {
-            return .failure(PolyParseError.parseFailure("error creating Parser (\(error.localizedDescription))"))
+            preconditionFailure("Bad Polynomial (\(src)")
         }
     }
 

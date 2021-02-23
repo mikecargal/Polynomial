@@ -27,7 +27,7 @@
 		27DD9FD225DEA65700640738 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DD9FD125DEA65700640738 /* ViewController.swift */; };
 		27DD9FD425DEA65700640738 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27DD9FD325DEA65700640738 /* Assets.xcassets */; };
 		27DD9FD725DEA65700640738 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27DD9FD525DEA65700640738 /* Main.storyboard */; };
-		27DD9FE325DEA65800640738 /* PolynomialTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DD9FE225DEA65800640738 /* PolynomialTests.swift */; };
+		27DD9FE325DEA65800640738 /* TermTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DD9FE225DEA65800640738 /* TermTests.swift */; };
 		27DD9FEE25DEA65800640738 /* PolynomialUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DD9FED25DEA65800640738 /* PolynomialUITests.swift */; };
 /* End PBXBuildFile section */
 
@@ -93,7 +93,7 @@
 		27DD9FD825DEA65700640738 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		27DD9FD925DEA65700640738 /* Polynomial.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Polynomial.entitlements; sourceTree = "<group>"; };
 		27DD9FDE25DEA65800640738 /* PolynomialTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PolynomialTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		27DD9FE225DEA65800640738 /* PolynomialTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolynomialTests.swift; sourceTree = "<group>"; };
+		27DD9FE225DEA65800640738 /* TermTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermTests.swift; sourceTree = "<group>"; };
 		27DD9FE425DEA65800640738 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		27DD9FE925DEA65800640738 /* PolynomialUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PolynomialUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		27DD9FED25DEA65800640738 /* PolynomialUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolynomialUITests.swift; sourceTree = "<group>"; };
@@ -210,7 +210,7 @@
 		27DD9FE125DEA65800640738 /* PolynomialTests */ = {
 			isa = PBXGroup;
 			children = (
-				27DD9FE225DEA65800640738 /* PolynomialTests.swift */,
+				27DD9FE225DEA65800640738 /* TermTests.swift */,
 				2754287E25E1911E00F21873 /* ParsingTests.swift */,
 				27DD9FE425DEA65800640738 /* Info.plist */,
 			);
@@ -436,7 +436,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2754287F25E1911E00F21873 /* ParsingTests.swift in Sources */,
-				27DD9FE325DEA65800640738 /* PolynomialTests.swift in Sources */,
+				27DD9FE325DEA65800640738 /* TermTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

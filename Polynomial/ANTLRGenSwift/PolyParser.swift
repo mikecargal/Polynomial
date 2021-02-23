@@ -21,12 +21,12 @@ open class PolyParser: Parser {
 	}
 
 	public
-	static let RULE_polys = 0, RULE_fullPExpr = 1, RULE_pExpr = 2, RULE_fullTerm = 3, 
-            RULE_term = 4, RULE_degree = 5, RULE_coefficient = 6
+	static let RULE_polys = 0, RULE_fullPExpr = 1, RULE_pExpr = 2, RULE_term = 3, 
+            RULE_degree = 4, RULE_coefficient = 5
 
 	public
 	static let ruleNames: [String] = [
-		"polys", "fullPExpr", "pExpr", "fullTerm", "term", "degree", "coefficient"
+		"polys", "fullPExpr", "pExpr", "term", "degree", "coefficient"
 	]
 
 	private static let _LITERAL_NAMES: [String?] = [
@@ -113,9 +113,9 @@ open class PolyParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(14)
+		 	setState(12)
 		 	try pExpr(0)
-		 	setState(19)
+		 	setState(17)
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	while (//closure
@@ -123,17 +123,17 @@ open class PolyParser: Parser {
 		 	      let testSet: Bool = _la == PolyParser.Tokens.NL.rawValue
 		 	      return testSet
 		 	 }()) {
-		 		setState(15)
+		 		setState(13)
 		 		try match(PolyParser.Tokens.NL.rawValue)
-		 		setState(16)
+		 		setState(14)
 		 		try pExpr(0)
 
 
-		 		setState(21)
+		 		setState(19)
 		 		try _errHandler.sync(self)
 		 		_la = try _input.LA(1)
 		 	}
-		 	setState(22)
+		 	setState(20)
 		 	try match(PolyParser.Tokens.EOF.rawValue)
 
 		}
@@ -181,9 +181,9 @@ open class PolyParser: Parser {
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(24)
+		 	setState(22)
 		 	try pExpr(0)
-		 	setState(25)
+		 	setState(23)
 		 	try match(PolyParser.Tokens.EOF.rawValue)
 
 		}
@@ -352,7 +352,7 @@ open class PolyParser: Parser {
 		do {
 			var _alt: Int
 			try enterOuterAlt(_localctx, 1)
-			setState(33)
+			setState(31)
 			try _errHandler.sync(self)
 			switch (PolyParser.Tokens(rawValue: try _input.LA(1))!) {
 			case .L_PAREN:
@@ -360,11 +360,11 @@ open class PolyParser: Parser {
 				_ctx = _localctx
 				_prevctx = _localctx
 
-				setState(28)
+				setState(26)
 				try match(PolyParser.Tokens.L_PAREN.rawValue)
-				setState(29)
+				setState(27)
 				try pExpr(0)
-				setState(30)
+				setState(28)
 				try match(PolyParser.Tokens.R_PAREN.rawValue)
 
 				break
@@ -375,7 +375,7 @@ open class PolyParser: Parser {
 				_localctx = PTermContext(_localctx)
 				_ctx = _localctx
 				_prevctx = _localctx
-				setState(32)
+				setState(30)
 				try term()
 
 				break
@@ -383,7 +383,7 @@ open class PolyParser: Parser {
 				throw ANTLRException.recognition(e: NoViableAltException(self))
 			}
 			_ctx!.stop = try _input.LT(-1)
-			setState(43)
+			setState(41)
 			try _errHandler.sync(self)
 			_alt = try getInterpreter().adaptivePredict(_input,3,_ctx)
 			while (_alt != 2 && _alt != ATN.INVALID_ALT_NUMBER) {
@@ -392,17 +392,17 @@ open class PolyParser: Parser {
 					   try triggerExitRuleEvent()
 					}
 					_prevctx = _localctx
-					setState(41)
+					setState(39)
 					try _errHandler.sync(self)
 					switch(try getInterpreter().adaptivePredict(_input,2, _ctx)) {
 					case 1:
 						_localctx = MulDivContext(  PExprContext(_parentctx, _parentState))
 						try pushNewRecursionContext(_localctx, _startState, PolyParser.RULE_pExpr)
-						setState(35)
+						setState(33)
 						if (!(precpred(_ctx, 3))) {
 						    throw ANTLRException.recognition(e:FailedPredicateException(self, "precpred(_ctx, 3)"))
 						}
-						setState(36)
+						setState(34)
 						_localctx.castdown(MulDivContext.self).op = try _input.LT(1)
 						_la = try _input.LA(1)
 						if (!(//closure
@@ -416,18 +416,18 @@ open class PolyParser: Parser {
 							_errHandler.reportMatch(self)
 							try consume()
 						}
-						setState(37)
+						setState(35)
 						try pExpr(4)
 
 						break
 					case 2:
 						_localctx = AddSubContext(  PExprContext(_parentctx, _parentState))
 						try pushNewRecursionContext(_localctx, _startState, PolyParser.RULE_pExpr)
-						setState(38)
+						setState(36)
 						if (!(precpred(_ctx, 2))) {
 						    throw ANTLRException.recognition(e:FailedPredicateException(self, "precpred(_ctx, 2)"))
 						}
-						setState(39)
+						setState(37)
 						_localctx.castdown(AddSubContext.self).op = try _input.LT(1)
 						_la = try _input.LA(1)
 						if (!(//closure
@@ -441,7 +441,7 @@ open class PolyParser: Parser {
 							_errHandler.reportMatch(self)
 							try consume()
 						}
-						setState(40)
+						setState(38)
 						try pExpr(3)
 
 						break
@@ -449,7 +449,7 @@ open class PolyParser: Parser {
 					}
 			 
 				}
-				setState(45)
+				setState(43)
 				try _errHandler.sync(self)
 				_alt = try getInterpreter().adaptivePredict(_input,3,_ctx)
 			}
@@ -462,56 +462,6 @@ open class PolyParser: Parser {
 		}
 
 		return _localctx;
-	}
-
-	public class FullTermContext: ParserRuleContext {
-			open
-			func term() -> TermContext? {
-				return getRuleContext(TermContext.self, 0)
-			}
-			open
-			func EOF() -> TerminalNode? {
-				return getToken(PolyParser.Tokens.EOF.rawValue, 0)
-			}
-		override open
-		func getRuleIndex() -> Int {
-			return PolyParser.RULE_fullTerm
-		}
-		override open
-		func enterRule(_ listener: ParseTreeListener) {
-			if let listener = listener as? PolyListener {
-				listener.enterFullTerm(self)
-			}
-		}
-		override open
-		func exitRule(_ listener: ParseTreeListener) {
-			if let listener = listener as? PolyListener {
-				listener.exitFullTerm(self)
-			}
-		}
-	}
-	@discardableResult
-	 open func fullTerm() throws -> FullTermContext {
-		var _localctx: FullTermContext = FullTermContext(_ctx, getState())
-		try enterRule(_localctx, 6, PolyParser.RULE_fullTerm)
-		defer {
-	    		try! exitRule()
-	    }
-		do {
-		 	try enterOuterAlt(_localctx, 1)
-		 	setState(46)
-		 	try term()
-		 	setState(47)
-		 	try match(PolyParser.Tokens.EOF.rawValue)
-
-		}
-		catch ANTLRException.recognition(let re) {
-			_localctx.exception = re
-			_errHandler.reportError(self, re)
-			try _errHandler.recover(self, re)
-		}
-
-		return _localctx
 	}
 
 	public class TermContext: ParserRuleContext {
@@ -641,21 +591,21 @@ open class PolyParser: Parser {
 	@discardableResult
 	 open func term() throws -> TermContext {
 		var _localctx: TermContext = TermContext(_ctx, getState())
-		try enterRule(_localctx, 8, PolyParser.RULE_term)
+		try enterRule(_localctx, 6, PolyParser.RULE_term)
 		var _la: Int = 0
 		defer {
 	    		try! exitRule()
 	    }
 		do {
-		 	setState(62)
+		 	setState(57)
 		 	try _errHandler.sync(self)
 		 	switch(try getInterpreter().adaptivePredict(_input,5, _ctx)) {
 		 	case 1:
 		 		_localctx =  CvdTermContext(_localctx);
 		 		try enterOuterAlt(_localctx, 1)
-		 		setState(49)
+		 		setState(44)
 		 		try coefficient()
-		 		setState(51)
+		 		setState(46)
 		 		try _errHandler.sync(self)
 		 		_la = try _input.LA(1)
 		 		if (//closure
@@ -663,36 +613,36 @@ open class PolyParser: Parser {
 		 		      let testSet: Bool = _la == PolyParser.Tokens.MULT.rawValue
 		 		      return testSet
 		 		 }()) {
-		 			setState(50)
+		 			setState(45)
 		 			try match(PolyParser.Tokens.MULT.rawValue)
 
 		 		}
 
-		 		setState(53)
+		 		setState(48)
 		 		try {
 		 				let assignmentValue = try match(PolyParser.Tokens.VAR.rawValue)
 		 				_localctx.castdown(CvdTermContext.self).v = assignmentValue
 		 		     }()
 
-		 		setState(54)
+		 		setState(49)
 		 		try degree()
 
 		 		break
 		 	case 2:
 		 		_localctx =  VdTermContext(_localctx);
 		 		try enterOuterAlt(_localctx, 2)
-		 		setState(56)
+		 		setState(51)
 		 		try match(PolyParser.Tokens.VAR.rawValue)
-		 		setState(57)
+		 		setState(52)
 		 		try degree()
 
 		 		break
 		 	case 3:
 		 		_localctx =  CvTermContext(_localctx);
 		 		try enterOuterAlt(_localctx, 3)
-		 		setState(58)
+		 		setState(53)
 		 		try coefficient()
-		 		setState(59)
+		 		setState(54)
 		 		try {
 		 				let assignmentValue = try match(PolyParser.Tokens.VAR.rawValue)
 		 				_localctx.castdown(CvTermContext.self).v = assignmentValue
@@ -703,7 +653,7 @@ open class PolyParser: Parser {
 		 	case 4:
 		 		_localctx =  CTermContext(_localctx);
 		 		try enterOuterAlt(_localctx, 4)
-		 		setState(61)
+		 		setState(56)
 		 		try coefficient()
 
 		 		break
@@ -749,15 +699,15 @@ open class PolyParser: Parser {
 	@discardableResult
 	 open func degree() throws -> DegreeContext {
 		var _localctx: DegreeContext = DegreeContext(_ctx, getState())
-		try enterRule(_localctx, 10, PolyParser.RULE_degree)
+		try enterRule(_localctx, 8, PolyParser.RULE_degree)
 		defer {
 	    		try! exitRule()
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(64)
+		 	setState(59)
 		 	try match(PolyParser.Tokens.EXP.rawValue)
-		 	setState(65)
+		 	setState(60)
 		 	try {
 		 			let assignmentValue = try match(PolyParser.Tokens.INT.rawValue)
 		 			_localctx.castdown(DegreeContext.self).degreeValue = assignmentValue
@@ -808,14 +758,14 @@ open class PolyParser: Parser {
 	@discardableResult
 	 open func coefficient() throws -> CoefficientContext {
 		var _localctx: CoefficientContext = CoefficientContext(_ctx, getState())
-		try enterRule(_localctx, 12, PolyParser.RULE_coefficient)
+		try enterRule(_localctx, 10, PolyParser.RULE_coefficient)
 		var _la: Int = 0
 		defer {
 	    		try! exitRule()
 	    }
 		do {
 		 	try enterOuterAlt(_localctx, 1)
-		 	setState(68)
+		 	setState(63)
 		 	try _errHandler.sync(self)
 		 	_la = try _input.LA(1)
 		 	if (//closure
@@ -823,7 +773,7 @@ open class PolyParser: Parser {
 		 	      let testSet: Bool = _la == PolyParser.Tokens.MINUS.rawValue
 		 	      return testSet
 		 	 }()) {
-		 		setState(67)
+		 		setState(62)
 		 		try {
 		 				let assignmentValue = try match(PolyParser.Tokens.MINUS.rawValue)
 		 				_localctx.castdown(CoefficientContext.self).neg = assignmentValue
@@ -832,7 +782,7 @@ open class PolyParser: Parser {
 
 		 	}
 
-		 	setState(70)
+		 	setState(65)
 		 	_la = try _input.LA(1)
 		 	if (!(//closure
 		 	 { () -> Bool in

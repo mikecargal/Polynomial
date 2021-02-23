@@ -93,19 +93,6 @@ open class PolyBaseListener: PolyListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	open func enterFullTerm(_ ctx: PolyParser.FullTermContext) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	open func exitFullTerm(_ ctx: PolyParser.FullTermContext) { }
-
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	open func enterCvdTerm(_ ctx: PolyParser.CvdTermContext) { }
 	/**
 	 * {@inheritDoc}

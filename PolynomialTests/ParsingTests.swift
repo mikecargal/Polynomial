@@ -18,11 +18,11 @@ class ParsingTests: XCTestCase {
     }
 
     func testTermParse() throws {
-        XCTAssertEqual(PolyParse.term("2x^3"), PolynomialTerm("x", coefficient: 2, degree: 3))
+        XCTAssertEqual(PolyParse.poly("2x^3"), SingleTermPolynomialExpr("x", coefficient: 2, degree: 3))
     }
-    
+
     func testBadTerm() throws {
-      let res =  PolyParse.parseTerm("3x3")
+        let res = PolyParse.parsePoly("3x3")
         XCTAssertEqual(res, .failure(.invalidInput("col:2 extraneous input \'3\' expecting <EOF>")))
     }
 

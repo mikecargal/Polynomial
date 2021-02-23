@@ -11,7 +11,6 @@ pExpr:
     | term                              # pTerm
     ;
  
-fullTerm: term EOF;
 term :
     coefficient (MULT)? v=VAR degree    # cvdTerm
     | VAR degree                        # vdTerm

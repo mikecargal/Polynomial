@@ -87,18 +87,6 @@ public protocol PolyListener: ParseTreeListener {
 	 */
 	func exitMulDiv(_ ctx: PolyParser.MulDivContext)
 	/**
-	 * Enter a parse tree produced by {@link PolyParser#fullTerm}.
-	 - Parameters:
-	   - ctx: the parse tree
-	 */
-	func enterFullTerm(_ ctx: PolyParser.FullTermContext)
-	/**
-	 * Exit a parse tree produced by {@link PolyParser#fullTerm}.
-	 - Parameters:
-	   - ctx: the parse tree
-	 */
-	func exitFullTerm(_ ctx: PolyParser.FullTermContext)
-	/**
 	 * Enter a parse tree produced by the {@code cvdTerm}
 	 * labeled alternative in {@link PolyParser#term}.
 	 - Parameters:
