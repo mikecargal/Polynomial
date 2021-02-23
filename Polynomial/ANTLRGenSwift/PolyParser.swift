@@ -236,7 +236,9 @@ open class PolyParser: Parser {
 		}
 	}
 	public class AddSubContext: PExprContext {
+		public var lhs: PExprContext!
 		public var op: Token!
+		public var rhs: PExprContext!
 			open
 			func pExpr() -> [PExprContext] {
 				return getRuleContexts(PExprContext.self)
@@ -297,7 +299,9 @@ open class PolyParser: Parser {
 		}
 	}
 	public class MulDivContext: PExprContext {
+		public var lhs: PExprContext!
 		public var op: Token!
+		public var rhs: PExprContext!
 			open
 			func pExpr() -> [PExprContext] {
 				return getRuleContexts(PExprContext.self)
@@ -397,6 +401,7 @@ open class PolyParser: Parser {
 					switch(try getInterpreter().adaptivePredict(_input,2, _ctx)) {
 					case 1:
 						_localctx = MulDivContext(  PExprContext(_parentctx, _parentState))
+						(_localctx as! MulDivContext).lhs = _prevctx
 						try pushNewRecursionContext(_localctx, _startState, PolyParser.RULE_pExpr)
 						setState(33)
 						if (!(precpred(_ctx, 3))) {
@@ -417,11 +422,16 @@ open class PolyParser: Parser {
 							try consume()
 						}
 						setState(35)
-						try pExpr(4)
+						try {
+								let assignmentValue = try pExpr(4)
+								_localctx.castdown(MulDivContext.self).rhs = assignmentValue
+						     }()
+
 
 						break
 					case 2:
 						_localctx = AddSubContext(  PExprContext(_parentctx, _parentState))
+						(_localctx as! AddSubContext).lhs = _prevctx
 						try pushNewRecursionContext(_localctx, _startState, PolyParser.RULE_pExpr)
 						setState(36)
 						if (!(precpred(_ctx, 2))) {
@@ -442,7 +452,11 @@ open class PolyParser: Parser {
 							try consume()
 						}
 						setState(38)
-						try pExpr(3)
+						try {
+								let assignmentValue = try pExpr(3)
+								_localctx.castdown(AddSubContext.self).rhs = assignmentValue
+						     }()
+
 
 						break
 					default: break

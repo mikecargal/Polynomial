@@ -8,7 +8,7 @@
 @testable import Polynomial
 import XCTest
 
-class TermTests: XCTestCase {
+class PolynomialOperatorTests: XCTestCase {
     let px3 = PolyParse.poly("x^3")
     let p2x3 = PolyParse.poly("2x^3")
     let p3x3 = SingleTermPolynomialExpr("x", coefficient: 3, degree: 3)

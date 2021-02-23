@@ -6,8 +6,20 @@
 //
 
 import Foundation
-class Polynomial: Equatable {
+class Polynomial: Equatable, CustomDebugStringConvertible {
+    lazy var debugDescription = {
+        self.description()
+    }()
+
+    func description() -> String {
+        "Just some Polynomial 🤷🏼‍♂️"
+    }
+
     func isEqual(_ other: Polynomial) -> Bool {
+        fatalError("\(#function)Must be overridden")
+    }
+
+    func maxDegree() -> Int {
         fatalError("\(#function)Must be overridden")
     }
 
@@ -88,11 +100,7 @@ func == (lhs: Polynomial, rhs: Polynomial) -> Bool {
 //    }
 // }
 
-class SingleTermPolynomialExpr: Polynomial, CustomDebugStringConvertible {
-    lazy var debugDescription = {
-        self.description
-    }()
-
+class SingleTermPolynomialExpr: Polynomial {
     let coefficient: Double
     let v: String?
     let degree: Int
@@ -103,7 +111,7 @@ class SingleTermPolynomialExpr: Polynomial, CustomDebugStringConvertible {
         self.degree = degree
     }
 
-    var description: String {
+    override func description() -> String {
         "\(coefficient)\(v ?? "")^\(degree)"
     }
 
@@ -114,6 +122,10 @@ class SingleTermPolynomialExpr: Polynomial, CustomDebugStringConvertible {
                 degree == other.degree
         }
         return false
+    }
+
+    override func maxDegree() -> Int {
+        return degree
     }
 
     override func simplified() -> Polynomial {
@@ -178,14 +190,12 @@ func * (lhs: SingleTermPolynomialExpr, rhs: SingleTermPolynomialExpr) -> Polynom
 }
 
 func + (_ lhs: Polynomial, _ rhs: Polynomial) -> Polynomial {
-    switch (lhs, rhs) {
-    case let (l, r) where
-        l is SingleTermPolynomialExpr &&
-        r is SingleTermPolynomialExpr:
-        return (l as! SingleTermPolynomialExpr) + (r as! SingleTermPolynomialExpr)
-    default:
-        fatalError("\(#function) addition of \(lhs.self) and \(rhs.self) not yet implemented")
+    if let lhs = lhs as? SingleTermPolynomialExpr,
+       let rhs = rhs as? SingleTermPolynomialExpr
+    {
+        return lhs + rhs
     }
+    fatalError("\(#function) addition of \(lhs.self) and \(rhs.self) not yet implemented")
 }
 
 let negationPolynomial = SingleTermPolynomialExpr(nil, coefficient: -1, degree: 0)
@@ -195,12 +205,30 @@ class AddPolynomialExpr: Polynomial {
     let rhs: Polynomial
 
     init(_ lhs: Polynomial, _ rhs: Polynomial, subtraction: Bool = false) {
-        self.lhs = lhs
+        let (l, r) = lhs.maxDegree() > rhs.maxDegree()
+            ? (lhs, rhs)
+            : (rhs, lhs)
+        self.lhs = l
 //        if subtraction {
 //            self.rhs = rhs * negationPolynomial
 //        } else {
-        self.rhs = rhs
+        self.rhs = r
 //        }
+    }
+
+    override func description() -> String {
+        "\(lhs.description()) + \(rhs.description())"
+    }
+
+    override func maxDegree() -> Int {
+        return lhs.maxDegree()
+    }
+
+    override func isEqual(_ other: Polynomial) -> Bool {
+        if let other = other as? AddPolynomialExpr {
+            return (lhs == other.lhs && rhs == other.rhs)
+        }
+        return false
     }
 
     override func simplified() -> Polynomial {

@@ -33,11 +33,11 @@ protocol TermProvider {
     func term() -> SingleTermPolynomialExpr
 }
 
-//extension PolyParser.FullTermContext: TermProvider {
+// extension PolyParser.FullTermContext: TermProvider {
 //    func term() -> SinlgeTermPolynomialExpr {
 //        return self.term()!.term()
 //    }
-//}
+// }
 
 extension PolyParser.TermContext: TermProvider {
     func term() -> SingleTermPolynomialExpr {
@@ -59,32 +59,32 @@ extension PolyParser.TermContext: TermProvider {
 extension PolyParser.CTermContext {
     func cTerm() -> SingleTermPolynomialExpr {
         return SingleTermPolynomialExpr(nil,
-                              coefficient: coefficient()!.value(),
-                              degree: 0)
+                                        coefficient: coefficient()!.value(),
+                                        degree: 0)
     }
 }
 
 extension PolyParser.CvTermContext {
     func cvTerm() -> SingleTermPolynomialExpr {
         return SingleTermPolynomialExpr(VAR()!.getText(),
-                              coefficient: coefficient()!.value(),
-                              degree: 1)
+                                        coefficient: coefficient()!.value(),
+                                        degree: 1)
     }
 }
 
 extension PolyParser.VdTermContext {
     func vdTerm() -> SingleTermPolynomialExpr {
         return SingleTermPolynomialExpr(VAR()!.getText(),
-                              coefficient: 1,
-                              degree: degree()!.value())
+                                        coefficient: 1,
+                                        degree: degree()!.value())
     }
 }
 
 extension PolyParser.CvdTermContext {
     func cvdTerm() -> SingleTermPolynomialExpr {
         SingleTermPolynomialExpr(VAR()!.getText(),
-                       coefficient: coefficient()!.value(),
-                       degree: degree()!.value())
+                                 coefficient: coefficient()!.value(),
+                                 degree: degree()!.value())
     }
 }
 
@@ -92,11 +92,11 @@ protocol PolynomialProvider {
     func polynomial() -> Polynomial
 }
 
-//extension PolyParser.FullPExprContext: PolynomialProvider {
+// extension PolyParser.FullPExprContext: PolynomialProvider {
 ////    func pExpr() -> PolynomialExpr {
 ////        self.pExpr()!.pExpr()
 ////    }
-//}
+// }
 
 extension PolyParser.PExprContext: PolynomialProvider {
     func polynomial() -> Polynomial {
@@ -105,8 +105,8 @@ extension PolyParser.PExprContext: PolynomialProvider {
 //            return ctx.parenPExpr()
 //        case let ctx as PolyParser.MulDivContext:
 //            return ctx.mulDivPExpr()
-//        case let ctx as PolyParser.AddSubContext:
-//            return ctx.addSubPExpr()
+        case let ctx as PolyParser.AddSubContext:
+            return ctx.addSubPExpr()
         case let ctx as PolyParser.PTermContext:
             return ctx.termPExpr()
         default:
@@ -130,24 +130,19 @@ extension PolyParser.MulDivContext {
 }
 
 extension PolyParser.AddSubContext {
-//    func addSubPExpr() -> PolynomialExpr {
-//        // TODO:
-//        return PolynomialExpr([PolynomialTerm("x", coefficient: 1, degree: 1)])
-//    }
+    func addSubPExpr() -> Polynomial {
+        return lhs!.polynomial() + rhs!.polynomial()
+    }
 }
 
 extension PolyParser.PTermContext {
     func termPExpr() -> SingleTermPolynomialExpr {
-        // TODO:
-        return term()!.term()// SingleTermPolynomialExpr("x", coefficient: 1, degree: 1)
+        return self.term()!.term()
     }
 }
 
-extension PolyParser.FullPExprContext : PolynomialProvider {
+extension PolyParser.FullPExprContext: PolynomialProvider {
     func polynomial() -> Polynomial {
-        // TODO:
-        return  pExpr()!.polynomial() // SingleTermPolynomialExpr("x", coefficient: 1, degree: 1)
+        return pExpr()!.polynomial()
     }
-    
-    
 }

@@ -5,10 +5,10 @@ polys: pExpr (NL pExpr)* EOF;
 
 fullPExpr: pExpr EOF;
 pExpr:
-    L_PAREN pExpr R_PAREN               # parenPExpr
-    | pExpr op = (MULT | DIV) pExpr     # mulDiv
-    | pExpr op = (PLUS | MINUS) pExpr   # addSub
-    | term                              # pTerm
+    L_PAREN pExpr R_PAREN                     # parenPExpr
+    | lhs=pExpr op = (MULT | DIV) rhs=pExpr   # mulDiv
+    | lhs=pExpr op = (PLUS | MINUS) rhs=pExpr # addSub
+    | term                                    # pTerm
     ;
  
 term :
