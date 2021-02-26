@@ -31,6 +31,10 @@ class Polynomial: Equatable, CustomDebugStringConvertible {
         fatalError("\(#function)Must be overridden")
     }
 
+    func collectAdditions() -> [Polynomial] {
+        [self]
+    }
+
 //    static func +(_ lhs: Polynomial, rhs: Polynomial) -> Polynomial
 //    static func -(_ lhs: Polynomial, rhs: Polynomial) -> Polynomial
 //    static func *(_ lhs: Polynomial, rhs: Polynomial) -> Polynomial
@@ -246,65 +250,11 @@ class AddSubPolynomialExpr: Polynomial {
     }
 
     override func isEqual(_ other: Polynomial) -> Bool {
-        if let other = other as? AddSubPolynomialExpr {
-            if lhs == other.lhs, rhs == other.rhs {
-                return true
-            }
-            /*
-                     ┌───┐              ┌───┐
-                     │ + │              │ + │
-                     └───┘              └───┘
-                       ╱╲                 ╱╲
-                      ╱  ╲               ╱  ╲
-                     ╱    ╲             ╱    ╲
-                  ┌───┐  ┌───┐      ┌───┐   ┌───┐
-                  │ + │  │ C │  ==  │ A │   │ + │
-                  └───┘  └───┘      └───┘   └───┘
-                    ╱╲                        ╱╲
-                   ╱  ╲                      ╱  ╲
-                  ╱    ╲                    ╱    ╲
-              ┌───┐   ┌───┐              ┌───┐  ┌───┐
-              │ A │   │ B │              │ B │  │ C │
-              └───┘   └───┘              └───┘  └───┘
-             */
-            if let l = lhs as? AddSubPolynomialExpr,
-               let or = other.rhs as? AddSubPolynomialExpr
-            {
-                if l.op == .add {
-                    return l.lhs == other.lhs &&
-                        l.rhs == or.lhs &&
-                        rhs == or.rhs
-                }
-            }
-            /*
-                  ┌───┐                  ┌───┐
-                  │ + │                  │ + │
-                  └───┘                  └───┘
-                    ╱╲                     ╱╲
-                   ╱  ╲                   ╱  ╲
-                  ╱    ╲                 ╱    ╲
-              ┌───┐   ┌───┐           ┌───┐  ┌───┐
-              │ A │   │ + │     ==    │ + │  │ C │
-              └───┘   └───┘           └───┘  └───┘
-                        ╱╲              ╱╲
-                       ╱  ╲            ╱  ╲
-                      ╱    ╲          ╱    ╲
-                   ┌───┐  ┌───┐   ┌───┐   ┌───┐
-                   │ B │  │ C │   │ A │   │ B │
-                   └───┘  └───┘   └───┘   └───┘
+        collectAdditions() == other.collectAdditions()
+    }
 
-             */
-            if let r = rhs as? AddSubPolynomialExpr,
-               let ol = other.lhs as? AddSubPolynomialExpr
-            {
-                if r.op == .add {
-                    return lhs == ol.lhs &&
-                        r.lhs == ol.rhs &&
-                        r.rhs == rhs
-                }
-            }
-        }
-        return false
+    override func collectAdditions() -> [Polynomial] {
+        lhs.collectAdditions() + rhs.collectAdditions()
     }
 
     override func normalized() -> Polynomial {
