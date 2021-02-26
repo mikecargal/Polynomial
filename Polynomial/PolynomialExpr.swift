@@ -19,11 +19,15 @@ class Polynomial: Equatable, CustomDebugStringConvertible {
         fatalError("\(#function)Must be overridden")
     }
 
+    func isEquivalent(_ other: Polynomial) -> Bool {
+        normalized() == other.normalized()
+    }
+
     func maxDegree() -> Int {
         fatalError("\(#function)Must be overridden")
     }
 
-    func simplified() -> Polynomial {
+    func normalized() -> Polynomial {
         fatalError("\(#function)Must be overridden")
     }
 
@@ -34,8 +38,50 @@ class Polynomial: Equatable, CustomDebugStringConvertible {
 //    static prefix func -(_ polynomial: Polynomial) -> Polynomial
 }
 
+// MARK: - Generalized Operators
+
 func == (lhs: Polynomial, rhs: Polynomial) -> Bool {
     return lhs.isEqual(rhs)
+}
+
+func ~= (lhs: Polynomial, rhs: Polynomial) -> Bool {
+    return lhs.isEquivalent(rhs)
+}
+
+func + (_ lhs: Polynomial, _ rhs: Polynomial) -> Polynomial {
+    if let lhs = lhs as? SingleTermPolynomialExpr,
+       let rhs = rhs as? SingleTermPolynomialExpr
+    {
+        return lhs + rhs
+    }
+    fatalError("\(#function) addition of \(lhs.self) and \(rhs.self) not yet implemented")
+}
+
+func - (_ lhs: Polynomial, _ rhs: Polynomial) -> Polynomial {
+    if let lhs = lhs as? SingleTermPolynomialExpr,
+       let rhs = rhs as? SingleTermPolynomialExpr
+    {
+        return lhs - rhs
+    }
+    fatalError("\(#function) addition of \(lhs.self) and \(rhs.self) not yet implemented")
+}
+
+func * (_ lhs: Polynomial, _ rhs: Polynomial) -> Polynomial {
+    if let lhs = lhs as? SingleTermPolynomialExpr,
+       let rhs = rhs as? SingleTermPolynomialExpr
+    {
+        return lhs * rhs
+    }
+    fatalError("\(#function) addition of \(lhs.self) and \(rhs.self) not yet implemented")
+}
+
+func / (_ lhs: Polynomial, _ rhs: Polynomial) -> Polynomial {
+//    if let lhs = lhs as? SingleTermPolynomialExpr,
+//       let rhs = rhs as? SingleTermPolynomialExpr
+//    {
+//        return lhs - rhs
+//    }
+    fatalError("\(#function) addition of \(lhs.self) and \(rhs.self) not yet implemented")
 }
 
 // struct PolynomialExpr : Polynomial {
@@ -100,6 +146,8 @@ func == (lhs: Polynomial, rhs: Polynomial) -> Bool {
 //    }
 // }
 
+// MARK: - SingleTermPolynomial
+
 class SingleTermPolynomialExpr: Polynomial {
     let coefficient: Double
     let v: String?
@@ -128,9 +176,120 @@ class SingleTermPolynomialExpr: Polynomial {
         return degree
     }
 
-    override func simplified() -> Polynomial {
+    override func normalized() -> Polynomial {
         return self
     }
+}
+
+func + (lhs: SingleTermPolynomialExpr, rhs: SingleTermPolynomialExpr) -> Polynomial {
+    if lhs.degree == rhs.degree,
+       lhs.v == rhs.v
+    {
+        return SingleTermPolynomialExpr(lhs.v,
+                                        coefficient: lhs.coefficient + rhs.coefficient,
+                                        degree: lhs.degree)
+    } else {
+        return AddSubPolynomialExpr(lhs, .add, rhs)
+    }
+}
+
+func * (lhs: SingleTermPolynomialExpr, rhs: SingleTermPolynomialExpr) -> Polynomial {
+    if lhs.degree == rhs.degree,
+       lhs.v == rhs.v
+    {
+        return SingleTermPolynomialExpr(lhs.v,
+                                        coefficient: lhs.coefficient * rhs.coefficient,
+                                        degree: lhs.degree + rhs.degree)
+    } else {
+        return MultPolynomialExpr(lhs, .multiply, rhs)
+    }
+}
+
+func - (lhs: SingleTermPolynomialExpr, rhs: SingleTermPolynomialExpr) -> Polynomial {
+    if lhs.degree == rhs.degree,
+       lhs.v == rhs.v
+    {
+        return SingleTermPolynomialExpr(lhs.v,
+                                        coefficient: lhs.coefficient - rhs.coefficient,
+                                        degree: lhs.degree)
+    } else {
+        return MultPolynomialExpr(lhs, .multiply, rhs)
+    }
+}
+
+// MARK: - AddSub Polynomial
+
+enum AddSubPolynomialOperator: String {
+    case add = "+"
+    case subtract = "-"
+}
+
+let negationPolynomial = SingleTermPolynomialExpr(nil, coefficient: -1, degree: 0)
+
+class AddSubPolynomialExpr: Polynomial {
+    let lhs: Polynomial
+    let rhs: Polynomial
+    let op: AddSubPolynomialOperator
+
+    init(_ lhs: Polynomial, _ op: AddSubPolynomialOperator, _ rhs: Polynomial) {
+        self.lhs = lhs
+        self.op = op
+        self.rhs = rhs
+    }
+
+    override func description() -> String {
+        "\(lhs.description()) + \(rhs.description())"
+    }
+
+    override func maxDegree() -> Int {
+        return lhs.maxDegree()
+    }
+
+    override func isEqual(_ other: Polynomial) -> Bool {
+        if let other = other as? AddSubPolynomialExpr {
+            return (lhs == other.lhs && rhs == other.rhs)
+        }
+        return false
+    }
+
+    override func normalized() -> Polynomial {
+        if lhs.maxDegree() > rhs.maxDegree() {
+            return self
+        }
+        if lhs.maxDegree() == rhs.maxDegree() {
+            return op == .add ? lhs + rhs : lhs - rhs
+        }
+        // lhs.maxDegree() < rhs.maxDegree()
+        if op == .add {
+            return rhs + lhs
+        }
+        //  subtraction so we need to invert rhs and add
+        return rhs * negationPolynomial - lhs
+    }
+}
+
+// MARK: - Mult Polynomial
+
+enum MultPolynomialOperator: String {
+    case multiply = "*"
+    case divide = "/"
+}
+
+class MultPolynomialExpr: Polynomial {
+    let lhs: Polynomial
+    let op: MultPolynomialOperator
+    let rhs: Polynomial
+    init(_ lhs: Polynomial, _ op: MultPolynomialOperator, _ rhs: Polynomial) {
+        self.lhs = lhs
+        self.op = op
+        self.rhs = rhs
+    }
+
+    override func normalized() -> Polynomial {
+        // TODO:
+        return self
+    }
+}
 
 //    static func * (lhs: SingleTermPolynomialExpr, rhs: SingleTermPolynomialExpr) -> Polynomial {
 //        return lhs // TODO:
@@ -163,83 +322,3 @@ class SingleTermPolynomialExpr: Polynomial {
 //    static func + (lhs: Polynomial, rhs: SingleTermPolynomialExpr) -> Polynomial {
 //        return lhs // TODO:
 //    }
-}
-
-func + (lhs: SingleTermPolynomialExpr, rhs: SingleTermPolynomialExpr) -> Polynomial {
-    if lhs.degree == rhs.degree,
-       lhs.v == rhs.v
-    {
-        return SingleTermPolynomialExpr(lhs.v,
-                                        coefficient: lhs.coefficient + rhs.coefficient,
-                                        degree: lhs.degree)
-    } else {
-        return AddPolynomialExpr(lhs, rhs)
-    }
-}
-
-func * (lhs: SingleTermPolynomialExpr, rhs: SingleTermPolynomialExpr) -> Polynomial {
-    if lhs.degree == rhs.degree,
-       lhs.v == rhs.v
-    {
-        return SingleTermPolynomialExpr(lhs.v,
-                                        coefficient: lhs.coefficient * rhs.coefficient,
-                                        degree: lhs.degree + rhs.degree)
-    } else {
-        return AddPolynomialExpr(lhs, rhs)
-    }
-}
-
-func + (_ lhs: Polynomial, _ rhs: Polynomial) -> Polynomial {
-    if let lhs = lhs as? SingleTermPolynomialExpr,
-       let rhs = rhs as? SingleTermPolynomialExpr
-    {
-        return lhs + rhs
-    }
-    fatalError("\(#function) addition of \(lhs.self) and \(rhs.self) not yet implemented")
-}
-
-let negationPolynomial = SingleTermPolynomialExpr(nil, coefficient: -1, degree: 0)
-
-class AddPolynomialExpr: Polynomial {
-    let lhs: Polynomial
-    let rhs: Polynomial
-
-    init(_ lhs: Polynomial, _ rhs: Polynomial, subtraction: Bool = false) {
-        let (l, r) = lhs.maxDegree() > rhs.maxDegree()
-            ? (lhs, rhs)
-            : (rhs, lhs)
-        self.lhs = l
-//        if subtraction {
-//            self.rhs = rhs * negationPolynomial
-//        } else {
-        self.rhs = r
-//        }
-    }
-
-    override func description() -> String {
-        "\(lhs.description()) + \(rhs.description())"
-    }
-
-    override func maxDegree() -> Int {
-        return lhs.maxDegree()
-    }
-
-    override func isEqual(_ other: Polynomial) -> Bool {
-        if let other = other as? AddPolynomialExpr {
-            return (lhs == other.lhs && rhs == other.rhs)
-        }
-        return false
-    }
-
-    override func simplified() -> Polynomial {
-        return self // TODO:
-        //  return lhs + rhs
-    }
-}
-
-class MultPolynomialExpr: Polynomial {
-    override func simplified() -> Polynomial {
-        // TODO:
-        return self
-    }
-}

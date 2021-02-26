@@ -194,15 +194,15 @@
 				27DD9FCF25DEA65700640738 /* AppDelegate.swift */,
 				27DD9FD125DEA65700640738 /* ViewController.swift */,
 				277366E325DF18A9005F8B25 /* MyPolyListener.swift */,
-				273F43B325E05E5600DC1404 /* ContextExtensions.swift */,
 				273F43BB25E061A800DC1404 /* PolynomialExpr.swift */,
+				2754288625E1914800F21873 /* PolyParse.swift */,
+				273F43B325E05E5600DC1404 /* ContextExtensions.swift */,
 				279736D625E024CC0011D7C8 /* PolynomialTerm.swift */,
 				279736B425DFF74C0011D7C8 /* MyErrorListener.swift */,
 				27DD9FD325DEA65700640738 /* Assets.xcassets */,
 				27DD9FD525DEA65700640738 /* Main.storyboard */,
 				27DD9FD825DEA65700640738 /* Info.plist */,
 				27DD9FD925DEA65700640738 /* Polynomial.entitlements */,
-				2754288625E1914800F21873 /* PolyParse.swift */,
 			);
 			path = Polynomial;
 			sourceTree = "<group>";

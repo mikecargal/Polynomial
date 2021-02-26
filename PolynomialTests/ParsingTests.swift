@@ -26,8 +26,8 @@ class ParsingTests: XCTestCase {
         let t1 = SingleTermPolynomialExpr("x", coefficient: 2, degree: 2)
         let t2 = SingleTermPolynomialExpr(nil, coefficient: 7, degree: 0)
         let poly = PolyParse.parsePoly("2x^2+7")
-        XCTAssertEqual(poly, .success(AddPolynomialExpr(t1, t2)))
-        XCTAssertEqual(poly, .success(AddPolynomialExpr(t2, t1)))
+        XCTAssertEqual(poly, .success(AddSubPolynomialExpr(t1, .add, t2)))
+        XCTAssertNotEqual(poly, .success(AddSubPolynomialExpr(t2, .add, t1)))
     }
 
     func testMultiTermSameDegreePolynomial() throws {
