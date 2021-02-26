@@ -28,6 +28,15 @@ class PolynomialOperatorTests: XCTestCase {
         XCTAssertEqual(p2x3 + p5x3, p7x3)
     }
 
+    func testThreeTermPolynomial() throws {
+        let t1 = SingleTermPolynomialExpr("x", coefficient: 4, degree: 3)
+        let t2 = SingleTermPolynomialExpr("x", coefficient: 2, degree: 2)
+        let t3 = SingleTermPolynomialExpr(nil, coefficient: 7, degree: 0)
+        let as1 = AddSubPolynomialExpr(AddSubPolynomialExpr(t1,.add,t2),.add,t3)
+        let as2 = AddSubPolynomialExpr(t1,.add,(AddSubPolynomialExpr(t2,.add,t3)))
+        XCTAssertEqual(as1, as2)
+    }
+    
      func testPolynomialTermSubtraction() throws {
         // TODO:
   //      XCTAssertEqual(p5x3 - p2x3, p3x3)

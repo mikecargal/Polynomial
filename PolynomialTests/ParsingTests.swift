@@ -22,7 +22,7 @@ class ParsingTests: XCTestCase {
                        .success(SingleTermPolynomialExpr("x", coefficient: 2, degree: 3)))
     }
 
-    func testMultiTermPolynomial() throws {
+    func testTwoTermPolynomial() throws {
         let t1 = SingleTermPolynomialExpr("x", coefficient: 2, degree: 2)
         let t2 = SingleTermPolynomialExpr(nil, coefficient: 7, degree: 0)
         let poly = PolyParse.parsePoly("2x^2+7")
@@ -30,14 +30,24 @@ class ParsingTests: XCTestCase {
         XCTAssertNotEqual(poly, .success(AddSubPolynomialExpr(t2, .add, t1)))
     }
 
-    func testMultiTermSameDegreePolynomial() throws {
+    func testTwoTermSameDegreePolynomial() throws {
         let poly = PolyParse.parsePoly("2x^2+4x^2")
-        XCTAssertEqual(poly, .success(SingleTermPolynomialExpr("x", coefficient: 6, degree: 2)))
+        XCTAssertNotEqual(poly, .success(SingleTermPolynomialExpr("x", coefficient: 6, degree: 2)))
     }
 
     func testBadTerm() throws {
         XCTAssertEqual(PolyParse.parsePoly("3x3"),
                        .failure(.invalidInput("col:2 extraneous input \'3\' expecting <EOF>")))
+    }
+    
+    func testThreeTermPolynomial() throws {
+        let t1 = SingleTermPolynomialExpr("x", coefficient: 4, degree: 3)
+        let t2 = SingleTermPolynomialExpr("x", coefficient: 2, degree: 2)
+        let t3 = SingleTermPolynomialExpr(nil, coefficient: 7, degree: 0)
+        let expected = AddSubPolynomialExpr(AddSubPolynomialExpr(t1,.add,t2),.add,t3)
+        let poly = PolyParse.parsePoly("4x^3+2x^2+7")
+        XCTAssertEqual(poly, .success(expected))
+        XCTAssertNotEqual(poly, .success(AddSubPolynomialExpr(t2, .add, t1)))
     }
 
     func testPerformanceExample() throws {

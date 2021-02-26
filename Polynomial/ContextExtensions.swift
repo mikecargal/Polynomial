@@ -33,12 +33,6 @@ protocol TermProvider {
     func term() -> SingleTermPolynomialExpr
 }
 
-// extension PolyParser.FullTermContext: TermProvider {
-//    func term() -> SinlgeTermPolynomialExpr {
-//        return self.term()!.term()
-//    }
-// }
-
 extension PolyParser.TermContext: TermProvider {
     func term() -> SingleTermPolynomialExpr {
         switch self {
@@ -92,12 +86,6 @@ protocol PolynomialProvider {
     func polynomial() -> Polynomial
 }
 
-// extension PolyParser.FullPExprContext: PolynomialProvider {
-////    func pExpr() -> PolynomialExpr {
-////        self.pExpr()!.pExpr()
-////    }
-// }
-
 extension PolyParser.PExprContext: PolynomialProvider {
     func polynomial() -> Polynomial {
         switch self {
@@ -131,7 +119,7 @@ extension PolyParser.MulDivContext {
 
 extension PolyParser.AddSubContext {
     func addSubPExpr() -> Polynomial {
-        return lhs!.polynomial() + rhs!.polynomial()
+        return AddSubPolynomialExpr(lhs.polynomial(), PLUS() != nil ? .add : .subtract, rhs.polynomial())
     }
 }
 

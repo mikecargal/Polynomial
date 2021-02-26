@@ -247,7 +247,62 @@ class AddSubPolynomialExpr: Polynomial {
 
     override func isEqual(_ other: Polynomial) -> Bool {
         if let other = other as? AddSubPolynomialExpr {
-            return (lhs == other.lhs && rhs == other.rhs)
+            if lhs == other.lhs, rhs == other.rhs {
+                return true
+            }
+            /*
+                     ┌───┐              ┌───┐
+                     │ + │              │ + │
+                     └───┘              └───┘
+                       ╱╲                 ╱╲
+                      ╱  ╲               ╱  ╲
+                     ╱    ╲             ╱    ╲
+                  ┌───┐  ┌───┐      ┌───┐   ┌───┐
+                  │ + │  │ C │  ==  │ A │   │ + │
+                  └───┘  └───┘      └───┘   └───┘
+                    ╱╲                        ╱╲
+                   ╱  ╲                      ╱  ╲
+                  ╱    ╲                    ╱    ╲
+              ┌───┐   ┌───┐              ┌───┐  ┌───┐
+              │ A │   │ B │              │ B │  │ C │
+              └───┘   └───┘              └───┘  └───┘
+             */
+            if let l = lhs as? AddSubPolynomialExpr,
+               let or = other.rhs as? AddSubPolynomialExpr
+            {
+                if l.op == .add {
+                    return l.lhs == other.lhs &&
+                        l.rhs == or.lhs &&
+                        rhs == or.rhs
+                }
+            }
+            /*
+                  ┌───┐                  ┌───┐
+                  │ + │                  │ + │
+                  └───┘                  └───┘
+                    ╱╲                     ╱╲
+                   ╱  ╲                   ╱  ╲
+                  ╱    ╲                 ╱    ╲
+              ┌───┐   ┌───┐           ┌───┐  ┌───┐
+              │ A │   │ + │     ==    │ + │  │ C │
+              └───┘   └───┘           └───┘  └───┘
+                        ╱╲              ╱╲
+                       ╱  ╲            ╱  ╲
+                      ╱    ╲          ╱    ╲
+                   ┌───┐  ┌───┐   ┌───┐   ┌───┐
+                   │ B │  │ C │   │ A │   │ B │
+                   └───┘  └───┘   └───┘   └───┘
+
+             */
+            if let r = rhs as? AddSubPolynomialExpr,
+               let ol = other.lhs as? AddSubPolynomialExpr
+            {
+                if r.op == .add {
+                    return lhs == ol.lhs &&
+                        r.lhs == ol.rhs &&
+                        r.rhs == rhs
+                }
+            }
         }
         return false
     }
