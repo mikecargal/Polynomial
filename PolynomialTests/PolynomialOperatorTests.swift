@@ -49,6 +49,18 @@ class PolynomialOperatorTests: XCTestCase {
         XCTAssertEqual(as1, as3)
     }
     
+    func testFourTermPolynomialWithSub() throws {
+        let t1 = SingleTermPolynomialExpr("x", coefficient: 9, degree: 4)
+        let t2 = SingleTermPolynomialExpr("x", coefficient: 4, degree: 3)
+        let t3 = SingleTermPolynomialExpr("x", coefficient: 2, degree: 2)
+        let t4 = SingleTermPolynomialExpr(nil, coefficient: 7, degree: 0)
+        let as1 = AddSubPolynomialExpr(AddSubPolynomialExpr(AddSubPolynomialExpr(t1,.add,t2),.subtract,t3),.add,t4)
+        let as2 = AddSubPolynomialExpr(t1,.add,(AddSubPolynomialExpr(t2,.subtract,AddSubPolynomialExpr(t3,.add,t4))))
+        XCTAssertEqual(as1, as2)
+        let as3 = AddSubPolynomialExpr(AddSubPolynomialExpr(t1,.add,t2),.subtract,AddSubPolynomialExpr(t3,.add,t4))
+        XCTAssertEqual(as1, as3)
+    }
+    
      func testPolynomialTermSubtraction() throws {
         // TODO:
   //      XCTAssertEqual(p5x3 - p2x3, p3x3)

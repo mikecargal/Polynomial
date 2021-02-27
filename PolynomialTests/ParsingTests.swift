@@ -60,6 +60,17 @@ class ParsingTests: XCTestCase {
         XCTAssertEqual(poly, .success(expected))
         XCTAssertNotEqual(poly, .success(AddSubPolynomialExpr(t2, .add, t1)))
     }
+    
+    func testFourTermPolynomialWithSub() throws {
+        let t1 = SingleTermPolynomialExpr("x", coefficient: 9, degree: 4)
+        let t2 = SingleTermPolynomialExpr("x", coefficient: 4, degree: 3)
+        let t3 = SingleTermPolynomialExpr("x", coefficient: 2, degree: 2)
+        let t4 = SingleTermPolynomialExpr(nil, coefficient: 7, degree: 0)
+        let expected = AddSubPolynomialExpr(AddSubPolynomialExpr(AddSubPolynomialExpr(t1,.add,t2),.subtract,t3),.add,t4)
+        let poly = PolyParse.parsePoly("9x^4+4x^3-2x^2+7")
+        XCTAssertEqual(poly, .success(expected))
+        XCTAssertNotEqual(poly, .success(AddSubPolynomialExpr(t2, .add, t1)))
+    }
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
